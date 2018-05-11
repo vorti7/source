@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="/stylesheets/style.default.css" id="theme-stylesheet">
+  <% include ./cp-head %>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body class="body-class">
+  <!-- Header 구문-->
+  <header id="header">
+    <nav class="navbar navbar-expand-md navbar-light cp-bg-color-white  ">
+      <a class="navbar-brand" href="/">
+        <img id="btnBack" alt="orbit" src="/asset/img/img_orbit_bi_293x72.png">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" href="/class_management">반 관리</a>
+          <a class="nav-item nav-link " href="/work_dashboard">과제 현황</a>
+          <a class="nav-item nav-link" href="/">학습 자료</a>
+          <a class="nav-item nav-link" href="/contents_store">자료실</a>
+        </div>
+      </div>
+
+      <div  class="navbar-nav float-md-right">
+        <li  class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Jason 선생님</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" >정보 변경</a>
+            <a class="dropdown-item" >로그아웃</a>
+          </div>
+        </li>
+      </div>
+    </nav>
+  </header>
+  <!-- Header 구문-->
+
+  <div id="fullpage" class="container-fluid">
+
+    <div class="row p-2 cp-bg-color-gray1 section fp-auto-height-responsive">
+      <!-- Left -->
+      <div class ="cp-shadow-card cp-left-menu col-md-2 pl-4 cp-bg-color-white cp-color-font">
+        <div class="h5 cp-h5 pl-2 pt-3 pb-2 border-white cp-font-noto-regular align-top">전체폴더</div>
+
+        <a class="list-group-item bg-transparent border-0 row align-middle" data-toggle="collapse" href="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">
+          <span class="cp-vec-color-primary cp-vec-size-default cp-vec-ic-folder-open"></span>
+          <span class="h6 cp-h6 align-middle pl-4 cp-font-noto-extra-bold"><font size="2">크팟 중학교 1학년 1반</font></span>
+        </a>
+
+        <ul class="col collapse multi-collapse font-weight-normal cp-font-noto-extra-bold" id="multiCollapseExample1">
+
+          <li class="list-group-item bg-transparent border-0 h6 cp-h6 pl-4 row align-middle">
+
+            <span class="cp-vec-color-primary cp-vec-size-default cp-vec-ic-folder-open"></span>
+            <span class="cp-color-primary align-middle pl-4">전체</span>
+          </li>
+
+          <li class="list-group-item bg-transparent border-0 h6 cp-h6 pl-4 row align-middle">
+            <span class="cp-vec-color-orbit cp-vec-size-default cp-vec-ic-folder"></span>
+            <span class="align-middle pl-4">듣기 보충 그룹</span>
+          </li>
+
+          <li class="list-group-item bg-transparent border-0 h6 cp-h6 pl-4 row align-middle">
+            <span class="cp-vec-color-orbit cp-vec-size-default cp-vec-ic-folder"></span>
+            <span class="align-middle pl-4">읽기 보충 그룹</span>
+          </li>
+
+        </ul>
+
+        <a class="list-group-item bg-transparent border-0 row align-middle" data-toggle="collapse" >
+          <span class="cp-vec-color-orbit cp-vec-size-default cp-vec-ic-folder"></span>
+          <span class="h6 cp-h6 align-middle pl-4 cp-font-noto-extra-bold"><font size="2">크팟 중학교 1학년 2반</font></span>
+        </a>
+
+
+        <a class="list-group-item bg-transparent border-0 row align-middle" data-toggle="collapse" >
+          <span class="cp-vec-color-orbit cp-vec-size-default cp-vec-ic-folder"></span>
+          <span class="h6 cp-h6 align-middle pl-4 cp-font-noto-extra-bold"><font size="2">크팟 중학교 1학년 3반</font></span>
+        </a>
+
+
+        <a class="list-group-item bg-transparent border-0 row align-middle" data-toggle="collapse" >
+          <span class="cp-vec-color-orbit cp-vec-size-default cp-vec-ic-folder"></span>
+          <span class="h6 cp-h6 align-middle pl-4 cp-font-noto-extra-bold"><font size="2">크팟 중학교 1학년 4반</font></span>
+        </a>
+      </div><!-- END Left -->
+
+
+
+      <!-- Right -->
+
+      <div class ="col ml-1 p-0 cp-bg-color-gray1 cp-color-font">
+        <div class="card">
+
+          <!-- navbar -->
+          <nav id="sideNavWrapper" class="navbar border border-left-0 border-top-0 border-right-0 border-bottom-5">
+            <div class="col align-middle float-left pl-0">
+              <a class="d-inline-flex nav-link p-0" >
+                <span class="align-self-center cp-font-noto-bold cp-color-font">크팟 중학교 1학년 1반 전체</span>
+              </a>
+            </div>
+            <ul class="col nav justify-content-end float-right  col-md-auto p-0">
+
+              <li class=" col nav-item col-md-auto pl-1 pr-1">
+                <a class="d-inline-flex nav-link"  >
+                  <span class="align-self-center m-0 pl-1 cp-color-white">수정</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!-- navbar -->
+
+
+          <div class="row m-1">
+
+
+
+            <div class="card  col-md m-2 d-flex statistic cp-bg-color-accent ">
+
+              <div class="cp-font-size-desc cp-font-noto-bold cp-color-white">
+                목표 달성률
+              </div>
+              <div class="text-center statistic align-items-center">
+                <div class="cp-font-size-xlarge cp-font-noto-extra-bold cp-color-white">
+                  94.9%
+                </div>
+                <small class="cp-color-accent cp-color-white">목표 달성률</small>
+              </div>
+
+            </div>
+
+            <div class="card col-md m-2">
+              <div class="p-3">
+                <i class="fa fa-bar-chart-o fa-fw"></i> 영상 과제 접속 추이
+              </div>
+              <canvas id="myChart1" ></canvas>
+            </div>
+
+
+            <div class="card  col-md m-2 bg-white d-flex statistic ">
+              <div class="cp-font-size-desc cp-font-noto-bold">
+                목표 달성률
+              </div>
+              <div class="text-center statistic align-items-center">
+                <div class="cp-font-size-xlarge cp-font-noto-extra-bold">
+                  94.9%
+                </div>
+                <small class="cp-color-accent">목표 달성률</small>
+              </div>
+            </div>
+
+            <div class="card  col-md m-2 bg-white d-flex statistic ">
+              <div class="cp-font-size-desc cp-font-noto-bold">
+                목표 달성률
+              </div>
+              <div class="text-center statistic align-items-center">
+                <div class="cp-font-size-xlarge cp-font-noto-extra-bold">
+                  94.9%
+                </div>
+                <small class="cp-color-accent">목표 달성률</small>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="row m-1">
+            <div class="card  col-md m-2 d-flex statistic cp-bg-color-oeum ">
+              <div class="cp-font-size-desc cp-font-noto-bold cp-color-white">
+                목표 달성률
+              </div>
+              <div class="text-center statistic align-items-center">
+                <div class="cp-font-size-xlarge cp-font-noto-extra-bold cp-color-white">
+                  94.9%
+                </div>
+                <small class="cp-color-accent cp-color-white">목표 달성률</small>
+              </div>
+
+            </div>
+
+            <div class="card col-md m-2">
+              <div class="p-3">
+                <i class="fa fa-bar-chart-o fa-fw"></i> 영상 과제 접속 추이
+              </div>
+              <canvas id="myChart11" ></canvas>
+            </div>
+
+            <div class="card  col-md m-2 bg-white d-flex statistic ">
+              <div class="cp-font-size-desc cp-font-noto-bold">
+                목표 달성률
+              </div>
+              <div class="text-center statistic align-items-center">
+                <div class="cp-font-size-xlarge cp-font-noto-extra-bold">
+                  94.9%
+                </div>
+                <small class="cp-color-accent">목표 달성률</small>
+              </div>
+            </div>
+
+            <div class="card  col-md m-2 bg-white d-flex statistic ">
+              <div class="cp-font-size-desc cp-font-noto-bold">
+                목표 달성률
+              </div>
+              <div class="text-center statistic align-items-center">
+                <div class="cp-font-size-xlarge cp-font-noto-extra-bold">
+                  94.9%
+                </div>
+                <small class="cp-color-accent">목표 달성률</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="row m-1">
+
+            <div class="card  col-md m-2 bg-white d-flex statistic ">
+              <div class="cp-font-size-desc cp-font-noto-bold">
+                목표 달성률
+              </div>
+              <div class="text-center statistic align-items-center">
+                <div class="cp-font-size-xlarge cp-font-noto-extra-bold">
+                  94.9%
+                </div>
+                <small class="cp-color-accent">목표 달성률</small>
+              </div>
+            </div>
+
+            <div class="card  col-md m-2 bg-white d-flex statistic ">
+              <div class="cp-font-size-desc cp-font-noto-bold">
+                목표 달성률
+              </div>
+              <div class="text-center statistic align-items-center">
+                <div class="cp-font-size-xlarge cp-font-noto-extra-bold">
+                  94.9%
+                </div>
+                <small class="cp-color-accent">목표 달성률</small>
+              </div>
+            </div>
+
+            <div class="card  col-md m-2 bg-white d-flex statistic ">
+              <div class="cp-font-size-desc cp-font-noto-bold">
+                목표 달성률
+              </div>
+              <div class="text-center statistic align-items-center">
+                <div class="cp-font-size-xlarge cp-font-noto-extra-bold">
+                  94.9%
+                </div>
+                <small class="cp-color-accent">목표 달성률</small>
+              </div>
+            </div>
+
+
+            <div class="card  col-md m-2 bg-white d-flex statistic ">
+              <div class="cp-font-size-desc cp-font-noto-bold">
+                목표 달성률
+              </div>
+              <div class="text-center statistic align-items-center">
+                <div class="cp-font-size-xlarge cp-font-noto-extra-bold">
+                  94.9%
+                </div>
+                <small class="cp-color-accent">목표 달성률</small>
+              </div>
+            </div>
+
+
+          </div>
+
+          <div class="row m-1">
+
+            <div class="card  col-md m-2 bg-white d-flex statistic ">
+              <div class="cp-font-size-desc cp-font-noto-bold">
+                목표 달성률
+              </div>
+              <div class="text-center statistic align-items-center">
+                <div class="cp-font-size-xlarge cp-font-noto-extra-bold">
+                  94.9%
+                </div>
+                <small class="cp-color-accent">목표 달성률</small>
+              </div>
+            </div>
+
+            <div class="card  col-md m-2 bg-white d-flex statistic ">
+              <div class="cp-font-size-desc cp-font-noto-bold">
+                목표 달성률
+              </div>
+              <div class="text-center statistic align-items-center">
+                <div class="cp-font-size-xlarge cp-font-noto-extra-bold">
+                  94.9%
+                </div>
+                <small class="cp-color-accent">목표 달성률</small>
+              </div>
+            </div>
+
+            <div class="card  col-md m-2 bg-white d-flex statistic ">
+              <div class="cp-font-size-desc cp-font-noto-bold">
+                목표 달성률
+              </div>
+              <div class="text-center statistic align-items-center">
+                <div class="cp-font-size-xlarge cp-font-noto-extra-bold">
+                  94.9%
+                </div>
+                <small class="cp-color-accent">목표 달성률</small>
+              </div>
+            </div>
+
+
+            <div class="card  col-md m-2 bg-white d-flex statistic ">
+              <div class="cp-font-size-desc cp-font-noto-bold">
+                목표 달성률
+              </div>
+              <div class="text-center statistic align-items-center">
+                <div class="cp-font-size-xlarge cp-font-noto-extra-bold">
+                  94.9%
+                </div>
+                <small class="cp-color-accent">목표 달성률</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="card " style="margin-top: 10px;" >
+
+          <!-- navbar -->
+          <nav id="sideNavWrapper" class="navbar border border-left-0 border-top-0 border-right-0 border-bottom-5">
+            <div class="col align-middle float-left pl-0">
+              <a class="d-inline-flex nav-link p-0" >
+                <span class="align-self-center cp-font-noto-bold cp-color-font">정보 요약</span>
+              </a>
+            </div>
+            <ul class="col nav justify-content-end float-right  col-md-auto p-0">
+
+              <li class=" col nav-item col-md-auto pl-1 pr-1">
+                <a class="d-inline-flex nav-link"  >
+                  <span class="align-self-center m-0 pl-1 cp-color-white">수정</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!-- navbar -->
+
+          <div class="row m-1" >
+            <!-- Dashboard Counts Section-->
+            <section class="card col-md m-2 dashboard-counts no-padding-bottom no-padding-top" style="width:100%;">
+              <div class="row bg-white ">
+                <!-- Item -->
+                <div class="col-xl-3 col-sm-6">
+                  <div class="item d-flex align-items-center">
+                    <div class="icon bg-violet"><i class="icon-user"></i></div>
+                    <div class="title"><span>새로운<br>질문</span>
+                      <div class="progress">
+                        <div role="progressbar" style="width: 25%; height: 4px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-violet"></div>
+                      </div>
+                    </div>
+                    <div class="number"><strong>25</strong></div>
+                  </div>
+                </div>
+                <!-- Item -->
+                <div class="col-xl-3 col-sm-6">
+                  <div class="item d-flex align-items-center">
+                    <div class="icon bg-red"><i class="icon-padnote"></i></div>
+                    <div class="title"><span>영상<br>시청 수</span>
+                      <div class="progress">
+                        <div role="progressbar" style="width: 70%; height: 4px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-red"></div>
+                      </div>
+                    </div>
+                    <div class="number"><strong>70</strong></div>
+                  </div>
+                </div>
+                <!-- Item -->
+                <div class="col-xl-3 col-sm-6">
+                  <div class="item d-flex align-items-center">
+                    <div class="icon bg-green"><i class="icon-bill"></i></div>
+                    <div class="title"><span>과제<br>제출 수</span>
+                      <div class="progress">
+                        <div role="progressbar" style="width: 44%; height: 4px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-green"></div>
+                      </div>
+                    </div>
+                    <div class="number"><strong>44</strong></div>
+                  </div>
+                </div>
+                <!-- Item -->
+                <div class="col-xl-3 col-sm-6">
+                  <div class="item d-flex align-items-center">
+                    <div class="icon bg-orange"><i class="icon-check"></i></div>
+                    <div class="title"><span>학습중인<br>그룹</span>
+                      <div class="progress">
+                        <div role="progressbar" style="width: 35%; height: 4px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-orange"></div>
+                      </div>
+                    </div>
+                    <div class="number"><strong>35</strong></div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <!-- Dashboard Header Section    -->
+          <section class="dashboard-header">
+            <div class="container-fluid">
+              <div class="row">
+                <div class=" col-md col-lg-3 col-12">
+                  <!-- Statistics -->
+                  <div class="statistics ">
+                    <div class="card col-md statistic d-flex bg-white ">
+                      <div class="item d-flex align-items-center">
+                        <div class="icon bg-red"><i class="fa fa-tasks"></i></div>
+                        <div class="text"><strong>234</strong><br><small>문제</small></div>
+                      </div>
+                    </div>
+                    <div class="card col-md  statistic d-flex bg-white ">
+                      <div class="item d-flex align-items-center">
+                        <div class="icon bg-green"><i class="fa fa-calendar-o"></i></div>
+                        <div class="title"><strong>152</strong><br><small>영상 자료</small></div>
+                      </div>
+                    </div>
+                    <div class="card col-md  statistic d-flex bg-white ">
+                      <div class="item d-flex align-items-center">
+                        <div class="icon bg-orange"><i class="fa fa-paper-plane-o"></i></div>
+                        <div class="text"><strong>147</strong><br><small>질문</small></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Line Chart            -->
+                <div class="card col-md chart col-lg-6 col-12">
+                  <div class="line-chart bg-white d-flex align-items-center justify-content-center ">
+                    <canvas id="lineCahrt"></canvas>
+                  </div>
+                </div>
+                <div class="chart col-lg-3 col-12"  >
+                  <!-- Bar Chart   -->
+                  <div class="card col-md bar-chart bg-white">
+                    <div class="title"><strong class="text-violet">95%</strong><br><small>평균 접속자 수</small></div>
+                    <canvas id="barChartHome"></canvas>
+                  </div>
+                  <!-- Numbers-->
+                  <div class="card col-md statistic d-flex align-items-center bg-white has-shadow">
+                    <div class="icon bg-green"><i class="fa fa-line-chart"></i></div>
+                    <div class="text"><strong>94.9%</strong><br><small>목표 달성률</small></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Client Section-->
+          <section class="client no-padding-top">
+            <div class="container-fluid">
+              <div class="row">
+                <!-- Work Amount  -->
+                <div class="col-lg-4">
+                  <div class="work-amount card">
+                    <div class="card-close">
+                      <div class="dropdown">
+                        <button type="button" id="closeCard" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                        <div aria-labelledby="closeCard" class="dropdown-menu has-shadow"><a href="javascript:void(0)" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="javascript:void(0)" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <h3>학습 시간</h3><small>평균 학습 시간입니다.</small>
+                      <div class="chart text-center">
+                        <div class="text"><strong>90</strong><br><span>Hours</span></div>
+                        <canvas id="pieChartExample"></canvas>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Client Profile -->
+                <div class="col-lg-4">
+                  <div class="client card">
+                    <div class="card-close">
+                      <div class="dropdown">
+                        <button type="button" id="closeCard" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                        <div aria-labelledby="closeCard" class="dropdown-menu has-shadow"><a class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a  class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
+                      </div>
+                    </div>
+                    <div class="card-body text-center">
+                      <div class="client-avatar"><img src="/asset/img/avatar-5.jpg" alt="..." class="img-fluid rounded-circle">
+                        <div class="status bg-green"></div>
+                      </div>
+                      <div class="client-title">
+                        <h3>Jason 선생님</h3><span>화목반</span><a>Follow</a>
+                      </div>
+                      <div class="client-info">
+                        <div class="row">
+                          <div class="col-4"><strong>20</strong><br><small>과제</small></div>
+                          <div class="col-4"><strong>54</strong><br><small>Videos</small></div>
+                          <div class="col-4"><strong>235</strong><br><small>질문</small></div>
+                        </div>
+                      </div>
+                      <div class="client-social d-flex justify-content-between">
+                        <a  target="_blank"><i class="fa fa-facebook"></i></a>
+                        <a  target="_blank"><i class="fa fa-twitter"></i></a>
+                        <a  target="_blank"><i class="fa fa-google-plus"></i></a>
+                        <a  target="_blank"><i class="fa fa-instagram"></i></a>
+                        <a target="_blank"><i class="fa fa-linkedin"></i></a></div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Total Overdue             -->
+                  <div class="col-lg-4">
+                    <div class="overdue card">
+                      <div class="card-close">
+                        <div class="dropdown">
+                          <button type="button" id="closeCard"  aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                          <div aria-labelledby="closeCard" class="dropdown-menu has-shadow"><a href="javascript:void(0)" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="javascript:void(0)" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <h3>일일 학습자</h3><small>중복 학습 포함</small>
+                        <div class="number text-center">187명</div>
+                        <div class="chart">
+                          <canvas id="myLineChartDue"></canvas>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <div class="row m-1">
+              <div class="card col-md m-2">
+                <div class="p-3">
+                  <i class="fa fa-bar-chart-o fa-fw"></i> 성적 그래프
+                </div>
+                <canvas id="myChart2" ></canvas>
+              </div>
+              <div class="col-md m-2  alert alert-success" role="alert">
+                <h4 class="alert-heading">좋아요!</h4>
+                <p>1학년 학생들의 문법 성적이 많이 향상 되었어요!</p>
+                <p class="mb-0">문법교재 내용이 어느 정도 체계가 잡히면, 문법교재와 구문교재를 틈틈이 복습하면서,
+                  어휘를 본격적으로 공부하도록 지도가 필요합니다. 본격적으로 영어공부를 하려면 어휘력이 받쳐져야 합니다.
+                  또한 어휘를 공부하면서도 독해연습이 필요합니다. 예문을 전부 ‘독서’하고 해석 안 되는 문장 표시하고, 구조분석해서 단어를 외우면서 계속 복습하도록 해주세요. </p>
+                </div>
+              </div>
+
+            </div>
+
+
+            <div class="card " style="margin-top: 10px;" >
+
+              <!-- navbar -->
+              <nav id="sideNavWrapper" class="navbar border border-left-0 border-top-0 border-right-0 border-bottom-5">
+                <div class="col align-middle float-left pl-0">
+                  <a class="d-inline-flex nav-link p-0" >
+                    <span class="align-self-center cp-font-noto-bold cp-color-font">카테고리 현황</span>
+                  </a>
+                </div>
+                <ul class="col nav justify-content-end float-right  col-md-auto p-0">
+
+                  <li class=" col nav-item col-md-auto pl-1 pr-1">
+                    <a class="d-inline-flex nav-link"  >
+                      <span class="align-self-center m-0 pl-1 cp-color-white">수정</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+              <!-- navbar -->
+
+              <table class="table table-hover"  align="center" style="table-layout:fixed" id="metaCheckTable">
+                <thead style="text-align:center" class="thead-inverse">
+                  <tr>
+                    <th width="1px" nowrap><b>순위</b></td>
+                      <th width="20px" nowrap><b>이름</b></th>
+                      <th width="20px" nowrap><b>목표 달성률</b></th>
+                      <th width="20px" nowrap><b>문제 풀이 점수</b></th>
+                      <th width="20px" nowrap><b>암기율</b></th>
+                      <th width="20px" nowrap><b>전체 진도율</b></th>
+                      <th width="20px" nowrap><b>수업반</b></th>
+                      <th width="5px" nowrap><b>개인 목표점수</b></th>
+                      <th width="5px" nowrap><b>학부모<br>메시지함</b></th>
+                      <th width="5px" nowrap><b>상세분석</b></th>
+                    </tr>
+
+                  </thead>
+
+                  <tbody>
+                    <tr>
+                      <th width="1px" nowrap><b>1</b></td>
+                        <th width="20px" nowrap><b>엄유선</b></th>
+                        <th width="20px" nowrap><b>98.3%</b></th>
+                        <th width="20px" nowrap><b>78.5점</b></th>
+                        <th width="20px" nowrap><b>65.3%</b></th>
+                        <th width="20px" nowrap><b>62.2%</b></th>
+                        <th width="20px" nowrap><b>1학년1반</b></th>
+                        <th width="5px" nowrap><b>90</b></th>
+                        <th width="5px" nowrap><div class="btn btn-primary ">보기</div></th>
+                        <th width="5px" nowrap><div class="btn btn-primary ">보기</div></th>
+                      </tr>
+
+                      <tr>
+                        <th width="1px" nowrap><b>2</b></td>
+                          <th width="20px" nowrap><b>소진헌</b></th>
+                          <th width="20px" nowrap><b>92.1%</b></th>
+                          <th width="20px" nowrap><b>96.5점</b></th>
+                          <th width="20px" nowrap><b>77.5%</b></th>
+                          <th width="20px" nowrap><b>58.9%</b></th>
+                          <th width="20px" nowrap><b>1학년1반</b></th>
+                          <th width="5px" nowrap><b>80</b></th>
+                          <th width="5px" nowrap><div class="btn btn-primary ">보기</div></th>
+                          <th width="5px" nowrap><div class="btn btn-primary ">보기</div></th>
+                        </tr>
+
+                        <tr>
+                          <th width="1px" nowrap><b>3</b></td>
+                            <th width="20px" nowrap><b>임지우</b></th>
+                            <th width="20px" nowrap><b>89.0%</b></th>
+                            <th width="20px" nowrap><b>90.3점</b></th>
+                            <th width="20px" nowrap><b>62.5%</b></th>
+                            <th width="20px" nowrap><b>58.2%</b></th>
+                            <th width="20px" nowrap><b>1학년1반</b></th>
+                            <th width="5px" nowrap><b>90</b></th>
+                            <th width="5px" nowrap><div class="btn btn-primary ">보기</div></th>
+                            <th width="5px" nowrap><div class="btn btn-primary ">보기</div></th>
+                          </tr>
+
+                        </tbody>
+                      </table>
+
+                    </div>
+
+
+                    <div class="card " style="margin-top: 10px;" >
+
+                      <!-- navbar -->
+                      <nav id="sideNavWrapper" class="navbar border border-left-0 border-top-0 border-right-0 border-bottom-5">
+                        <div class="col align-middle float-left pl-0">
+                          <a class="d-inline-flex nav-link p-0" >
+                            <span class="align-self-center cp-font-noto-bold cp-color-font">평균 그래프</span>
+                          </a>
+                        </div>
+                        <ul class="col nav justify-content-end float-right  col-md-auto p-0">
+                          <li class=" col nav-item col-md-auto pl-1 pr-1">
+                            <a class="d-inline-flex nav-link"  >
+                              <span class="align-self-center m-0 pl-1 cp-color-white">수정</span>
+                            </a>
+                          </li>
+                        </ul>
+                      </nav>
+                      <!-- navbar -->
+
+                      <div class="row m-1">
+                        <div class="card col-md m-2">
+                          <div class="p-3">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> 학년 평균
+                          </div>
+                          <canvas id="myChart3" ></canvas>
+                        </div>
+
+                        <div class="card col-md m-2">
+                          <div class="p-3">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> 올해 평균
+                          </div>
+                          <canvas id="myChart4" ></canvas>
+                        </div>
+                      </div>
+
+
+                      <div class="row m-1">
+                        <div class="alert alert-info col-md m-2" role="alert">
+                          <strong>학습 스케줄을 한 눈에!</strong> <br>연계된 학습일/과목별/요일별 학습현황을 확인할 수 있는 서비스로
+                          학습 스케줄을 보다 효율적으로 관리할 수 있습니다.
+                        </div>
+
+                        <div class="alert alert-warning col-md m-2" role="alert">
+                          <h1><strong>84.7%</strong></h1> <br>3학년의 과제 제출이 비율이 높습니다.
+                        </div>
+                        <div class="alert alert-danger col-md m-2" role="alert">
+                          <h1><strong>74.3%</strong></h1> <br> 목표 달성률이 올랐습니다.
+                        </div>
+
+
+                        <div class="col-md m-2  alert alert-success" role="alert">
+                          <h4 class="alert-heading">77.4%</h4>
+                          <p>지난주와 비교해서 이번주에 숙제를 많이 하고 있습니다.</p>
+                          <p class="mb-0">암기율은 다른 반에 비해 성취도가 높은 편입니다. 칭찬해주세요!</p>
+                        </div>
+                      </div>
+
+
+                    </div>
+                  </div><!-- END Right -->
+                </div>
+              </div>
+
+              <script>
+              var ctx = document.getElementById('myChart1').getContext('2d');
+              var myChart1 = new Chart(ctx, {
+                type: 'line',
+                data: {
+                  labels: ['월', '화', '수', '목', '금', '토', '일'],
+                  datasets: [{
+                    label: '지난주',
+                    data: [91, 89, 73, 87, 76, 83, 77],
+                    backgroundColor: "rgba(153,255,51,0.6)"
+                  }, {
+                    label: '이번주',
+                    data: [82, 99, 85, 75, 92, 83, 90],
+                    backgroundColor: "rgba(255,153,0,0.6)"
+                  }]
+                }
+              });
+              var ctx11 = document.getElementById('myChart11').getContext('2d');
+              var myChart11 = new Chart(ctx11, {
+                type: 'line',
+                data: {
+                  labels: ['월', '화', '수', '목', '금', '토', '일'],
+                  datasets: [{
+                    label: '지난주',
+                    data: [91, 89, 73, 87, 76, 83, 77],
+                    backgroundColor: "rgba(153,255,51,0.6)"
+                  }, {
+                    label: '이번주',
+                    data: [82, 99, 85, 75, 92, 83, 90],
+                    backgroundColor: "rgba(255,153,0,0.6)"
+                  }]
+                }
+              });
+
+              var ctxLineChartDue = document.getElementById('myLineChartDue').getContext('2d');
+              var myLineChartDue = new Chart(ctxLineChartDue, {
+                type: 'line',
+                options: {
+                  scales: {
+                    xAxes: [{
+                      display: true,
+                      gridLines: {
+                        display: false
+                      }
+                    }],
+                    yAxes: [{
+                      ticks: {
+                        max: 40,
+                        min: 0,
+                        stepSize: 0.5
+                      },
+                      display: false,
+                      gridLines: {
+                        display: false
+                      }
+                    }]
+                  },
+                  legend: {
+                    display: false
+                  }
+                },
+                data: {
+                  labels: ["10시", "12시", "2시", "4시", "6시", "8시", "10시"],
+                  datasets: [
+                    {
+                      label: "학습자",
+                      fill: true,
+                      lineTension: 0,
+                      backgroundColor: "transparent",
+                      borderColor: '#6ccef0',
+                      pointBorderColor: '#59c2e6',
+                      pointHoverBackgroundColor: '#59c2e6',
+                      borderCapStyle: 'butt',
+                      borderDash: [],
+                      borderDashOffset: 0.0,
+                      borderJoinStyle: 'miter',
+                      borderWidth: 3,
+                      pointBackgroundColor: "#59c2e6",
+                      pointBorderWidth: 0,
+                      pointHoverRadius: 4,
+                      pointHoverBorderColor: "#fff",
+                      pointHoverBorderWidth: 0,
+                      pointRadius: 4,
+                      pointHitRadius: 0,
+                      data: [20, 28, 30, 22, 24, 27, 31],
+                      spanGaps: false
+                    }
+                  ]
+                }
+              });
+
+
+              var ctxPieChart = document.getElementById('pieChartExample').getContext('2d');
+              var pieChartExample = new Chart(ctxPieChart, {
+                type: 'doughnut',
+                options: {
+                  cutoutPercentage: 80,
+                  legend: {
+                    display: false
+                  }
+                },
+                data: {
+                  labels: [
+                    "First",
+                    "Second",
+                    "Third",
+                    "Fourth"
+                  ],
+                  datasets: [
+                    {
+                      data: [300, 50, 100, 60],
+                      borderWidth: [0, 0, 0, 0],
+                      backgroundColor: [
+                        '#44b2d7',
+                        "#59c2e6",
+                        "#71d1f2",
+                        "#96e5ff"
+                      ],
+                      hoverBackgroundColor: [
+                        '#44b2d7',
+                        "#59c2e6",
+                        "#71d1f2",
+                        "#96e5ff"
+                      ]
+                    }]
+                  }
+                });
+
+                var pieChartExample = {
+                  responsive: true
+                };
+
+
+                var ctxLineChart = document.getElementById('lineCahrt').getContext('2d');
+                var lineCahrt = new Chart(ctxLineChart, {
+                  type: 'line',
+                  data: {
+                    labels: ["월", "화", "수", "목", "금"],
+                    datasets: [
+                      {
+                        label: "1주",
+
+
+                        fill: true,
+                        lineTension: 0,
+                        backgroundColor: "transparent",
+                        borderColor: '#f15765',
+                        pointBorderColor: '#da4c59',
+                        pointHoverBackgroundColor: '#da4c59',
+                        borderCapStyle: 'butt',
+                        borderDash: [],
+                        borderDashOffset: 0.0,
+                        borderJoinStyle: 'miter',
+                        borderWidth: 1,
+                        pointBackgroundColor: "#fff",
+                        pointBorderWidth: 1,
+                        pointHoverRadius: 5,
+                        pointHoverBorderColor: "#fff",
+                        pointHoverBorderWidth: 2,
+                        pointRadius: 1,
+                        data: [90, 84, 84, 83, 84],
+                        pointHitRadius: 0,
+                        spanGaps: false
+                      },
+                      {
+                        label: "2주",
+                        fill: true,
+                        lineTension: 0,
+                        backgroundColor: "transparent",
+                        borderColor: "#54e69d",
+                        pointHoverBackgroundColor: "#44c384",
+                        borderCapStyle: 'butt',
+                        borderDash: [],
+                        borderDashOffset: 0.0,
+                        borderJoinStyle: 'miter',
+                        borderWidth: 1,
+                        pointBorderColor: "#44c384",
+                        pointBackgroundColor: "#fff",
+                        pointBorderWidth: 1,
+                        pointHoverRadius: 5,
+                        pointHoverBorderColor: "#fff",
+                        pointHoverBorderWidth: 2,
+                        pointRadius: 1,
+                        pointHitRadius: 10,
+                        data: [80, 87, 85, 87, 86],
+                        spanGaps: false
+                      },
+                      {
+                        label: "3주",
+                        fill: true,
+                        lineTension: 0,
+                        backgroundColor: "transparent",
+                        borderColor: "#d6e89d",
+                        pointHoverBackgroundColor: "#d46684",
+                        borderCapStyle: 'butt',
+                        borderDash: [],
+                        borderDashOffset: 0.0,
+                        borderJoinStyle: 'miter',
+                        borderWidth: 1,
+                        pointBorderColor: "#492d84",
+                        pointBackgroundColor: "#fff",
+                        pointBorderWidth: 1,
+                        pointHoverRadius: 5,
+                        pointHoverBorderColor: "#fff",
+                        pointHoverBorderWidth: 2,
+                        pointRadius: 1,
+                        pointHitRadius: 10,
+                        data: [83, 81, 91, 84, 87],
+                        spanGaps: false
+                      }
+                    ]
+                  }
+                });
+
+                var ctxBarChartHome = document.getElementById('barChartHome').getContext('2d');
+                var barChartHome = new Chart(ctxBarChartHome, {
+                  type: 'bar',
+                  options:
+                  {
+                    scales:
+                    {
+                      xAxes: [{
+                        display: false
+                      }],
+                      yAxes: [{
+                        display: false
+                      }],
+                    },
+                    legend: {
+                      display: false
+                    }
+                  },
+                  data: {
+                    labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "November", "December"],
+                    datasets: [
+                      {
+                        label: "접속자 수",
+                        backgroundColor: [
+                          'rgb(121, 106, 238)',
+                          'rgb(121, 106, 238)',
+                          'rgb(121, 106, 238)',
+                          'rgb(121, 106, 238)',
+                          'rgb(121, 106, 238)',
+                          'rgb(121, 106, 238)',
+                          'rgb(121, 106, 238)',
+                          'rgb(121, 106, 238)',
+                          'rgb(121, 106, 238)',
+                          'rgb(121, 106, 238)',
+                          'rgb(121, 106, 238)',
+                          'rgb(121, 106, 238)'
+                        ],
+                        borderColor: [
+                          'rgb(121, 106, 238)',
+                          'rgb(121, 106, 238)',
+                          'rgb(121, 106, 238)',
+                          'rgb(121, 106, 238)',
+                          'rgb(121, 106, 238)',
+                          'rgb(121, 106, 238)',
+                          'rgb(121, 106, 238)',
+                          'rgb(121, 106, 238)',
+                          'rgb(121, 106, 238)',
+                          'rgb(121, 106, 238)',
+                          'rgb(121, 106, 238)',
+                          'rgb(121, 106, 238)'
+                        ],
+                        borderWidth: 1,
+                        data: [35, 49, 55, 68, 81, 95, 85, 40, 30, 27, 22, 15]
+                      }
+                    ]
+                  }
+                });
+
+                var ctx2 = document.getElementById("myChart2").getContext('2d');
+                var myChart2 = new Chart(ctx2, {
+                  type: 'bar',
+                  data: {
+                    labels: ['월', '화', '수', '목', '금'],
+                    datasets: [{
+                      label: '문법',
+                      data: [82, 79, 83, 93, 88],
+                      backgroundColor: "rgba(153,24,51,1)"
+                    }, {
+                      label: '독해',
+                      data: [75, 83, 80, 85, 73],
+                      backgroundColor: "rgba(112,153,0,1)"
+                    }, {
+                      label: '어휘',
+                      data: [78, 85, 90, 80, 79],
+                      backgroundColor: "rgba(223,153,255,1)"
+                    }]
+                  }
+                });
+
+                var ctx3 = document.getElementById("myChart3");
+                var myChart3 = new Chart(ctx3, {
+                  type: 'radar',
+                  data: {
+                    labels: ['월', '화', '수', '목', '금', '토', '일'],
+                    datasets: [{
+                      label: '1학년',
+                      backgroundColor: "rgba(153,255,51,0.4)",
+                      borderColor: "rgba(244,112,51,1)",
+                      data: [72, 69, 73, 77, 78, 84, 77]
+                    }, {
+                      label: '2학년',
+                      backgroundColor: "rgba(255,153,0,0.4)",
+                      borderColor: "rgba(41,153,234,1)",
+                      data: [70, 96, 85, 75, 70, 83, 80]
+                    }, {
+                      label: '3학년',
+                      backgroundColor: "rgba(255,153,0,0.4)",
+                      borderColor: "rgba(143,123,122,1)",
+                      data: [60, 89, 75, 85, 70, 93, 80]
+                    }]
+                  }
+                });
+
+                var ctx4 = document.getElementById("myChart4").getContext('2d');
+                var myChart4 = new Chart(ctx4, {
+                  type: 'pie',
+                  data: {
+                    labels: ['1학기', '여름방학', '2학기', '겨울방학'],
+                    datasets: [{
+                      backgroundColor: [
+                        "#2ecc71",
+                        "#3498db",
+                        "#e74c3c",
+                        "#34495e"
+                      ],
+                      data: [12, 19, 24, 7]
+                    }]
+                  }
+                });
+
+                var ctx5 = document.getElementById("myChart5");
+                var myChart5 = new Chart(ctx5, {
+                  type: 'radar',
+                  data: {
+                    labels: ['월', '화', '수', '목', '금', '토', '일'],
+                    datasets: [{
+                      label: '1학년',
+                      backgroundColor: "rgba(153,255,51,0.4)",
+                      borderColor: "rgba(244,112,51,1)",
+                      data: [72, 69, 53, 67, 78, 84, 77]
+                    }, {
+                      label: '2학년',
+                      backgroundColor: "rgba(255,153,0,0.4)",
+                      borderColor: "rgba(41,153,234,1)",
+                      data: [70, 66, 85, 75, 70, 63, 60]
+                    }, {
+                      label: '3학년',
+                      backgroundColor: "rgba(255,153,0,0.4)",
+                      borderColor: "rgba(143,123,122,1)",
+                      data: [60, 89, 75, 85, 70, 93, 80]
+                    }]
+                  }
+                });
+
+                var ctx6 = document.getElementById("myChart6").getContext('2d');
+                var myChart6 = new Chart(ctx6, {
+                  type: 'pie',
+                  data: {
+                    labels: ['1학기', '여름방학', '2학기', '겨울방학'],
+                    datasets: [{
+                      backgroundColor: [
+                        "#2ecc71",
+                        "#3498db",
+                        "#e74c3c",
+                        "#34495e"
+                      ],
+                      data: [12, 19, 24, 7]
+                    }]
+                  }
+                });
+
+                </script>
+
+              </body>
+              </html>

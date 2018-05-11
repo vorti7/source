@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<head>
+	<link rel="stylesheet" href="asset/styleRegister.css">
+	<!-- <link rel="stylesheet" href="asset/fonts_cp_noto.css"> -->
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+
+	<style>
+	textarea.autosize { min-height: 50px; background-color:transparent; border:0; filter: chroma(color=ffffff);}
+	</style>
+
+</head>
+
+<body class="body-class">
+
+	<header id="header">
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">
+						<img id="backBtn" text-align="left" style="float:left" alt="Brand" src="asset/img-vec/btn_back.svg">
+						<a class="navbar-brand" text-align="left" style="float:left" href="#">영상 콘텐츠 편집</a>
+<!--						<input type="button" id="backBtn" value="Back">-->
+						<a class="navbar-brand" id="saveBtn" text-align="right" style="float:left" onclick="save()">Save</a>
+					</a>
+				</div>
+<!--				<div class="navbar-duedate span-parent-vertical-align">
+					<span id="dueDate" class="span-child-vertical-align">8월 12일까지 과제 (박윤규 선생님)</span>
+				</div>-->
+			</div>
+		</nav>
+
+	</header>
+
+	<div id="main" class="container-fluid">
+		<div id="videoContainer">
+			<div class="row">
+				<div id = "leftContainer" class="col-xs-6">
+					<div id="video" class="col-xs-12">
+						<!-- Youtube 영상 해당 위치 표시  -->
+						<iframe id="player" align="middle" width="100%" height="100%" src="https://www.youtube.com/embed/<%=youtube%>?rel=0&enablejsapi=1&controls=0&modestbranding=0" frameborder="0" allowfullscreen=""></iframe>
+						<!-- Youtube 영상 해당 위치 표시  -->
+					</div>
+					<!--Left Page1-->
+					<div id = "titleContainer" class="tabContent">
+						<div id="title" class="col-xs-12">
+							<h1><%=title%></h1>
+						</div>
+						<div id="description" class="col-xs-12">
+							<h5><%=subTitle%></h5>
+						</div>
+					</div>
+					<!--Left Page2-->
+					<div id = "contentsList" style = "background-color:#242526" class="tabContent">
+
+						<div id = "listContainer">
+
+						</div>
+					</div>
+				</div>
+
+
+				<!--Right Page1-->
+				<div id="captionContainer" class="tabContent caption-background col-xs-6 cp-divider-v">
+					<div id="captionTitle" class="caption-wrapper span-parent-vertical-align">
+						<div id = "leftCaptionTitle" height = "100%" style = "float:left">
+							<h3 style = "color:white">자막 및 학습 정보</h3>
+							<h5 id = "contentDate" style = "color:white">날짜</h5>
+						</div>
+						<div id="rightCationTitle" height = "100%" style = "float:right; background-color:red">
+							<span id = "cTRecm" style = "text-align:center">♥ 0<span>
+							<span id = "correctHistory" style = "text-align:center" onclick = 'history()'>편집 기록<span>
+						</div>
+					</div>
+
+					<div id="captionEng" class="caption-wrapper span-parent-vertical-align">
+						<label id="ContentE" class="pull-left"></label>
+						<textarea id="EditE" class="clickedit autosize initializeContent" onkeydown="resize(this)" onkeyup="resize(this)" width="100%" height="100%" style="resize:none;"></textarea>
+						<!--<input type="text" id="correctE">-->
+					</div>
+					<div id="captionKor" class="caption-wrapper span-parent-vertical-align">
+						<label id="ContentK" class="pull-left"></label>
+						<textarea id="EditK" class="clickedit autosize initializeContent" width="100%" height="100%" style="resize:none;"></textarea>
+						<!--<input type="text" id="correctK">-->
+					</div>
+					<div id="captionX" class="caption-wrapper span-parent-vertical-align">
+						<label id="ContentX" class="pull-left"></label>
+						<textarea id="EditX" class="clickedit autosize initializeContent" style="resize:none;"></textarea>
+						<!--<input type="text" id="correctX">-->
+						<input type="button" id="nextBtn" value="Next Content">
+						<input type="button" id="finishBtn" value="Finish">
+						<input type="button" id="checkBtn" value="Check">
+						<input type="button" id="moveBtn" value="Move">
+					</div>
+				</div>
+
+				<!--Right Page2-->
+				<div id="resultContainer" class="tabContent caption-background col-xs-8 cp-divider-v">
+					<div id = "exContent" class="col-xs-6">
+						<div id="exTitleContainer">
+							<span id="exContentDiffer"></span>
+							<span id="exContentTime"></span>
+						</div>
+						<div id="exContentList">
+							<div id="exContentEC">
+								<span id="exContentE">이전 영어 자막</span>
+							</div>
+							<div id="exContentKC">
+								<span id="exContentK">이전 한글 자막</span>
+							</div>
+							<div id="exContentXC">
+								<span id="exContentX">이전 설명 자막</span>
+							</div>
+						</div>
+						<div id="exCommentList">
+
+						</div>
+						<div id="exInputContainer">
+							<input type="text" maxLength="20" id = "exCommentInput">
+							<input type="button" id="exCommentBtn" value="입력">
+						</div>
+					</div>
+					<div id = "newContent" class="col-xs-6">
+						<div id="newTitleContainer">
+							<span id="newContentDiffer"></span>
+							<span id="newContentTime"></span>
+						</div>
+						<div id="newContentList">
+							<div id="newContentEC">
+								<span id="newContentE">새로운 영어 자막</span>
+							</div>
+							<div id="newContentKC">
+								<span id="newContentK">새로운 한글 자막</span>
+							</div>
+							<div id="newContentXC">
+								<span id="newContentX">새로운 설명 자막</span>
+							</div>
+						</div>
+						<div id="newCommentList">
+
+						</div>
+						<div id="newInputContainer">
+							<input type="text" maxLength="20" id = "newCommentInput">
+							<input type="button" id="newCommentBtn" value="입력">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="container-fluid cp-divider-h" id="toolboxContainer">
+				<span><a href="#"><img id="btnPlay" alt="Play" src="asset/img-vec/btn_play.svg"  onclick = 'play()'></a></span>
+				<span class ="cp-divider-v">
+				<a href="#"><img id="btnRepeat" alt="Repeat" src="asset/img-vec/btn_play_repeat.svg" onclick = 'repeat()'></a></span>
+				<span><a href="#"><img id="btnPrev" alt="Previous" src="asset/img-vec/btn_play_next.svg" onclick = 'prev()'></a></span>
+				<span id="sceneNumber"><a href="#">0/0</a></span>
+				<span class ="cp-divider-v"><a href="#"><img id="btnNext" alt="Next" src="asset/img-vec/btn_play_next.svg" onclick = 'next()'></a></span>
+				<span><a href="#"><img id="btnEngKor" alt="EngKor" src="asset/img-vec/btn_kor_eng.svg"></a></span>
+				<span><a href="#"><img id="btnFavorite" alt="Favorite" src="asset/img-vec/btn_star_empty.svg"></a></span>
+				<span><a href="#"><img id="btnSearch" alt="Favorite" src="asset/img-vec/btn_search.svg"></a></span>
+			</div>
+		</div>
+
+	</div>
+
+	<script type="text/javascript">
+
+		$('.tabContent').hide();
+		$('#titleContainer').show();
+		$('#captionContainer').show();
+
+//		$('#player').clone().appendTo('#videoShow');
+
+		// 2. This code loads the IFrame Player API code asynchronously.
+		var tag = document.createElement('script');
+
+		tag.src = "https://www.youtube.com/iframe_api";
+		var firstScriptTag = document.getElementsByTagName('script')[0];
+		firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+		// 3. This function creates an <iframe> (and YouTube player)
+		//    after the API code downloads.
+		var player;
+		function onYouTubeIframeAPIReady() {
+			console.log('Download Complete');
+			player = new YT.Player('player', {
+				events: {
+					'onReady': onPlayerReady,
+					'onStateChange': onPlayerStateChange
+				}
+			});
+		}
+/*
+		var contentArray = new Array();
+		'<%for(var i = 0; i<content.length; i++){%>'
+				  contentArray.push(JSON.parse('<%-JSON.stringify(content[i])%>'));
+		'<%}%>'
+*/
+
+		var commentList = new Array();
+		var exContentArray = JSON.parse('<%-JSON.stringify(content)%>');
+		var contentArray = JSON.parse('<%-JSON.stringify(content)%>');
+		var playingTime = 0;
+		var contentNum = -1;
+		var startTime = 0;
+		var finishTime = contentArray[0].content.start;
+		var repeatTrigger = 0;
+		var pauseTrigger = 1;
+
+		var differCheck = "";
+
+		var pageTrigger = 0;
+
+		document.getElementById("sceneNumber").innerHTML = 0+"/"+contentArray.length;
+		// 4. The API will call this function when the video player is ready.
+		function onPlayerReady(event) {
+			console.log("It's Ready")
+			event.target.playVideo();
+		}
+
+		// 5. The API calls this function when the player's state changes.
+		//    The function indicates that when playing a video (state=1),
+		//    the player should play for six seconds and then stop.
+		var done = false;
+		function onPlayerStateChange(event) {
+			if (event.data == YT.PlayerState.PLAYING && !done) {
+				done = true;
+				setInterval("showingContent()",100);
+			}
+			if (event.data == 2) {
+				console.log(player.getCurrentTime())
+			}
+		}
+		function stopVideo() {
+			player.stopVideo();
+			console.log(player.getCurrentTime());
+		}
+
+		function showingContent(){
+			playingTime = player.getCurrentTime();
+
+			if(repeatTrigger){
+				if(playingTime>finishTime){
+					player.seekTo(startTime, true);
+					return;
+				}
+			}else{
+				if(playingTime>finishTime){
+					if(pauseTrigger&&contentNum>=0){
+						console.log('Youtube Paused(Writing time)'+"#"+contentNum+">"+playingTime);
+						player.pauseVideo();
+						pauseTrigger = 0;
+					}
+//					document.getElementById("ContentE").innerHTML = "";
+//					document.getElementById("ContentK").innerHTML = "";
+//					document.getElementById("ContentX").innerHTML = "";
+				}
+			}
+
+			for(var i = contentNum+1; i<contentArray.length; i++){
+				if(playingTime>=contentArray[i].content.start*1 && playingTime<contentArray[i].content.finish*1){
+					console.log(contentArray[i]);
+					pauseTrigger = 1;
+					document.getElementById("ContentE").innerHTML = contentArray[i].content.contentE;
+					document.getElementById("ContentK").innerHTML = contentArray[i].content.contentK;
+					document.getElementById("ContentX").innerHTML = contentArray[i].content.contentX;
+					document.getElementById("EditE").innerHTML = contentArray[i].content.contentE;
+					document.getElementById("EditK").innerHTML = contentArray[i].content.contentK;
+					document.getElementById("EditX").innerHTML = contentArray[i].content.contentX;
+					document.getElementById("contentDate").innerHTML = contentArray[i].content.time;
+					document.getElementById("sceneNumber").innerHTML = (i+1)+"/"+contentArray.length;
+					contentNum = i;
+					startTime = contentArray[i].content.start;
+					finishTime = contentArray[i].content.finish;
+					break;
+				}
+			}
+		}
+
+		function play(){
+			console.log('playbutton clicked')
+			if (player.getPlayerState()==1) {
+				player.pauseVideo();
+			}
+			if (player.getPlayerState()==2) {
+				player.playVideo();
+			}
+		}
+
+		function repeat(){
+			if(repeatTrigger){
+				repeatTrigger = 0;
+			}else{
+				repeatTrigger = 1;
+			}
+		}
+
+		function prev(){
+			var nextContent = contentNum-1;
+			if(nextContent<0){
+				nextContent = 0;
+			}
+			document.getElementById("ContentE").innerHTML = contentArray[nextContent].content.contentE;
+			document.getElementById("ContentK").innerHTML = contentArray[nextContent].content.contentK;
+			document.getElementById("ContentX").innerHTML = contentArray[nextContent].content.contentX;
+			document.getElementById("contentDate").innerHTML = contentArray[nextContent].content.time;
+			document.getElementById("sceneNumber").innerHTML = (nextContent+1)+"/"+contentArray.length;
+			contentNum = nextContent;
+			startTime = contentArray[nextContent].content.start;
+			finishTime = contentArray[nextContent].content.finish;
+			player.seekTo(contentArray[nextContent].content.start, true);
+		}
+
+		function next(){
+			var nextContent = contentNum+1;
+			console.log(contentNum+"/"+nextContent);
+			if(nextContent>=contentArray.length){
+				nextContent = contentArray.length-1;
+			}
+			player.seekTo(contentArray[nextContent].content.start, true);
+			play();
+		}
+
+		function findDiffer(exWord, newWord){
+    	var resultObject = new Object();
+    	var exArray = new Array();
+    	var newArray = new Array();
+  	  var lineChecker = 0;
+  	  resultObject.resultEx = "";
+  	  resultObject.resultNew = "";
+
+			if(exWord==newWord){
+				resultObject.resultEx = exWord;
+	  	  resultObject.resultNew = newWord;
+				return resultObject;
+			}
+
+  	  for(var i = 0 ; i < exWord.length ; i++){
+  	    if(exWord.substring(i,(i+6))=='<br />'){
+  	      exArray.push(exWord.substring(lineChecker,i));
+  	      lineChecker = i+6
+  	      i = i+6;
+  	    }else if(i==exWord.length-1){
+  	      exArray.push(exWord.substring(lineChecker,i+1));
+  	      break;
+  	    }
+  	  }
+  	  lineChecker = 0;
+  	  for(var i = 0 ; i < newWord.length ; i++){
+  	    if(newWord.substring(i,(i+6))=='<br />'){
+  	      newArray.push(newWord.substring(lineChecker,i));
+  	      lineChecker =i+6
+  	      i = i+6;
+  	    }else if(i==newWord.length-1){
+  	      newArray.push(newWord.substring(lineChecker,i+1));
+  	    }
+  	  }
+
+  	  lineChecker = 0;
+
+  	  if(exArray.length==0){
+  	    resultObject.resultNew+="<font color='#FF0000'>";
+  	    for(var k = 0; k<newArray.length; k++){
+  	      resultObject.resultNew+=newArray[k];
+					if(k!=newArray.length-1){
+						resultObject.resultNew+='<br />';
+					}
+  	    }
+  	    resultObject.resultNew+="</font>";
+  	  }
+
+  	  for(var i = 0; i<exArray.length; i++){
+  	    for(var j = lineChecker; j<newArray.length; j++){
+  	      if(exArray[i]==newArray[j]){
+  	        resultObject.resultEx+=exArray[i];
+						if(i!=exArray.length-1){
+							resultObject.resultEx+='<br />';
+						}
+  	        if(lineChecker!=j){
+  	          resultObject.resultNew+="<font color='#FF0000'>";
+  	          for(var k = lineChecker; k<j; k++){
+								resultObject.resultNew+=newArray[k];
+  	            if(k!=newArray.length-1){
+									resultObject.resultNew+='<br />';
+								}
+  	          }
+  	          resultObject.resultNew+="</font>";
+  	        }
+  	        resultObject.resultNew+=newArray[j];
+						if(j!=newArray.length-1){
+							resultObject.resultNew+='<br />';
+						}
+  	        lineChecker = j+1;
+  	        break;
+  	      }else if(j==newArray.length-1){
+						console.log(i+"//"+j)
+  	        resultObject.resultEx+="<font color='#0000FF'>"+exArray[i]+"<br /></font>";
+  	      }
+  	    }
+  	    if(i==exArray.length-1&&lineChecker<newArray.length){
+  	      resultObject.resultNew+="<font color='#FF0000'>";
+  	      for(var k = lineChecker; k<newArray.length; k++){
+  	        resultObject.resultNew+=newArray[k];
+						if(k!=newArray.length-1){
+							resultObject.resultNew+='<br />';
+						}
+  	      }
+  	      resultObject.resultNew+="</font>";
+  	    }
+  	  }
+  	  return resultObject
+  	}
+
+
+		function resize(obj) {
+  		obj.style.height = "1px";
+  		obj.style.height = (12+obj.scrollHeight)+"px";
+		}
+
+
+		$('#nextBtn').click( function() {
+//			contentArray[contentNum].content.contentE = ($('#ContentE').val()).replace(/(?:\r\n|\r|\n)/g, '<br />');
+//			contentArray[contentNum].content.contentK = ($('#ContentK').val()).replace(/(?:\r\n|\r|\n)/g, '<br />');
+//			contentArray[contentNum].content.contentX = ($('#ContentX').val()).replace(/(?:\r\n|\r|\n)/g, '<br />');
+			player.seekTo(contentArray[contentNum].content.finish, true);
+			pauseTrigger = 0;
+			play();
+    })
+
+
+		$('#finishBtn').click( function() {
+			console.log('Data sended to server database')
+/*          $.ajax({
+              url: 'http://localhost:8080/postData',
+              dataType: 'json',
+              type: 'POST',
+              data: {'youtube':'<%=youtube%>',
+										 'excontents': JSON.stringify(exContentArray),
+										 'contents':JSON.stringify(contentArray)},
+              success: function(result) {
+							}
+          });*/
+    })
+
+		$('#moveBtn').click( function() {
+
+			commentList = new Array();
+
+			$('.tabContent').hide();
+			$('#resultContainer').show();
+			$('#contentsList').show();
+
+			$('#leftContainer').removeClass("col-xs-6");
+			$('#leftContainer').addClass("col-xs-4");
+
+			pageTrigger = 1;
+
+			var functionVar = new Object();
+			differCheck = "";
+			functionVar = findDiffer(exContentArray[contentNum].content.contentE, contentArray[contentNum].content.contentE);
+			document.getElementById("exContentE").innerHTML = functionVar.resultEx;
+			document.getElementById("newContentE").innerHTML = functionVar.resultNew;
+			if(functionVar.resultEx!=functionVar.resultNew){
+				console.log("("+functionVar.resultEx+"/"+functionVar.resultNew+")")
+				differCheck += "영어 원문";
+			}
+			functionVar = findDiffer(exContentArray[contentNum].content.contentK, contentArray[contentNum].content.contentK);
+			document.getElementById("exContentK").innerHTML = functionVar.resultEx;
+			document.getElementById("newContentK").innerHTML = functionVar.resultNew;
+			if(functionVar.resultEx!=functionVar.resultNew){
+				if(differCheck !=  ""){
+					differCheck += "/";
+				}
+				differCheck += "자막 해석";
+			}
+			functionVar = findDiffer(exContentArray[contentNum].content.contentX, contentArray[contentNum].content.contentX);
+			document.getElementById("exContentX").innerHTML = functionVar.resultEx;
+			document.getElementById("newContentX").innerHTML = functionVar.resultNew;
+			if(functionVar.resultEx!=functionVar.resultNew){
+				if(differCheck !=  ""){
+					differCheck += "/";
+				}
+				differCheck += "설명 글";
+			}
+
+			if(differCheck != ""){
+				differCheck += " 수정"
+			}
+
+			if(exContentArray[contentNum].content.differ){
+				document.getElementById("exContentDiffer").innerHTML = exContentArray[contentNum].content.differ;
+			}else{
+				document.getElementById("exContentDiffer").innerHTML = "Nothing to changed";
+			}
+
+			document.getElementById("newContentDiffer").innerHTML = differCheck;
+
+			document.getElementById("exContentTime").innerHTML = exContentArray[contentNum].content.time;
+//			document.getElementById("newContentTime").innerHTML = ;
+
+			$.ajax({
+			              url: 'http://localhost:8080/postData/getContentList',
+			              dataType: 'json',
+			              type: 'POST',
+			              data: {'youtube':'<%=youtube%>',
+													 'subId': contentArray[contentNum].subId},
+			              success: function(result) {
+											var getList = JSON.parse(result.result);
+											Object.keys(getList).map(function(objectKey, index) {
+    										var value = getList[objectKey];
+												if(value.differ){
+													$('#listContainer').append('<div>'+value.differ+'</div>')
+												}else{
+													$('#listContainer').append('<div>default</div>')
+												}
+											});
+										}
+			});
+    })
+
+		$('#backBtn').click( function() {
+			if(pageTrigger){
+				$('#listContainer *').remove();
+
+				$('.tabContent').hide();
+				$('#titleContainer').show();
+				$('#captionContainer').show();
+
+				$('#leftContainer').removeClass("col-xs-4");
+				$('#leftContainer').addClass("col-xs-6");
+				pageTrigger = 0;
+			}else{
+
+			}
+    })
+
+		$('#exCommentBtn').click( function() {
+			$.ajax({
+			              url: 'http://localhost:8080/postData/addComment',
+			              dataType: 'json',
+			              type: 'POST',
+			              data: {'youtube': '<%=youtube%>',
+													 'subId': contentArray[contentNum].subId,
+													 'contentId': contentArray[contentNum].contentId,
+												 	 'comment': $('#exCommentInput').val()},
+			              success: function(result) {
+											$('#exCommentList').append('<div>'+$('#exCommentInput').val()+'</div>')
+										}
+			          });
+
+    })
+
+		$('#newCommentBtn').click( function() {
+			$('#newCommentList').append('<div>'+$('#newCommentInput').val()+'</div>')
+			commentList.push($('#newCommentInput').val());
+			console.log(commentList)
+    })
+
+		function save(){
+			console.log(commentList);
+			$.ajax({
+			              url: 'http://localhost:8080/postData/aContent',
+			              dataType: 'json',
+			              type: 'POST',
+			              data: {'youtube': '<%=youtube%>',
+													 'aContent': JSON.stringify(contentArray[contentNum]),
+												 	 'differ': differCheck,
+												 	 'comment': JSON.stringify(commentList)},
+			              success: function(result) {
+										}
+			          });
+		}
+
+		var defaultText = 'Nothing to show';
+
+		function endEdit(e) {
+    	var input = $(e.target),
+        	label = input && input.prev(),
+					inputId = $(e.target).attr("id")
+    	label.text(input.val() === '' ? defaultText : input.val());
+
+			if(inputId=="EditE"){
+				contentArray[contentNum].content.contentE = input.val();
+				console.log(contentArray[contentNum].content.contentE);
+				$('#captionEng').css("background", "#242526");
+			}else if(inputId=="EditK"){
+				contentArray[contentNum].content.contentK = input.val();
+				console.log(contentArray[contentNum].content.contentK);
+				$('#captionKor').css("background", "#242526");
+			}else if(inputId=="EditX"){
+				contentArray[contentNum].content.contentX = input.val();
+				console.log(contentArray[contentNum].content.contentX);
+				$('#captionX').css("background", "#242526");
+			}
+			console.log(contentArray[contentNum]);
+			input.val('');
+    	input.hide();
+    	label.show();
+		}
+
+		$('.clickedit').hide()
+		.focusout(endEdit)
+		.keyup(function (e) {
+    	if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
+//        	endEdit(e);
+//        	return false;
+    	} else {
+        	return true;
+    	}
+		})
+		.prev().click(function () {
+			var inputId = $(this).attr("id");
+			if(inputId=="ContentE"){
+				$('#EditE').val(document.getElementById("ContentE").innerHTML);
+				$('#captionEng').css("background", "#00CCCC");
+			}else if(inputId=="ContentK"){
+				$('#EditK').val(document.getElementById("ContentK").innerHTML);
+				$('#captionKor').css("background", "#00CCCC");
+			}else if(inputId=="ContentX"){
+				$('#EditX').val(document.getElementById("ContentX").innerHTML);
+				$('#captionX').css("background", "#00CCCC");
+			}
+    	$(this).hide();
+    	$(this).next().show().focus();
+		});
+
+	</script>
+</body>
+
+</html>

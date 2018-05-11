@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="/stylesheets/style.default.css" id="theme-stylesheet">
+  <% include ./cp-head %>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<style>
+table {
+  border-collapse: collapse;
+}
+table td, table th {
+  border: 2px solid #e2e2e2;
+}
+table tr:first-child th {
+  border-top: 0;
+}
+table tr:last-child td {
+  border-bottom: 0;
+}
+table tr td:first-child,
+table tr th:first-child {
+  border-left: 0;
+}
+table tr td:last-child,
+table tr th:last-child {
+  border-right: 0;
+}
+</style>
+
+<body class="body-class">
+  <!-- Header 구문-->
+  <header id="header" class="cp-navbar">
+    <nav class="navbar navbar-expand-md navbar-light cp-bg-color-white  ">
+      <a class="navbar-brand" href="/">
+        <img id="btnBack" alt="orbit" src="/asset/img/img_orbit_bi_293x72.png">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" href="/class_management">반 관리</a>
+          <a class="nav-item nav-link " href="/work_dashboard">과제 현황</a>
+          <a class="nav-item nav-link" href="/">학습 자료</a>
+          <a class="nav-item nav-link" href="/contents_store">자료실</a>
+        </div>
+      </div>
+
+      <div  class="navbar-nav float-md-right">
+        <li  class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Jason 선생님</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" >정보 변경</a>
+            <a class="dropdown-item" >로그아웃</a>
+          </div>
+        </li>
+      </div>
+    </nav>
+  </header>
+  <!-- Header 구문-->
+
+  <div class="pt-5 container-fluid">
+
+    <div class="row p-2 cp-bg-color-gray1 section fp-auto-height-responsive">
+      <!-- Left -->
+      <div class ="cp-shadow-card cp-left-menu col-md-2 pl-4 cp-bg-color-white cp-color-font">
+        <div class="h5 cp-h5 pl-2 pt-3 pb-2 border-white cp-font-noto-regular align-top">전체폴더</div>
+
+        <a class="list-group-item bg-transparent border-0 row align-middle" data-toggle="collapse" href="#multiCollapseExample1" aria-expanded="true" aria-controls="multiCollapseExample1">
+          <span class="cp-vec-color-primary cp-vec-size-default cp-vec-ic-folder-open"></span>
+          <span class="h6 cp-h6 align-middle pl-4 cp-font-noto-extra-bold"><font size="2">크팟 중학교 1학년 1반</font></span>
+        </a>
+
+        <ul class="col collapse multi-collapse font-weight-normal cp-font-noto-extra-bold show" id="multiCollapseExample1">
+
+          <li class="list-group-item bg-transparent border-0 h6 cp-h6 pl-4 row align-middle">
+
+            <span class="cp-vec-color-primary cp-vec-size-default cp-vec-ic-folder-open"></span>
+            <span class="cp-color-primary align-middle pl-4">전체</span>
+          </li>
+
+          <li class="list-group-item bg-transparent border-0 h6 cp-h6 pl-4 row align-middle">
+            <span class="cp-vec-color-orbit cp-vec-size-default cp-vec-ic-folder"></span>
+            <span class="align-middle pl-4">듣기 보충 그룹</span>
+          </li>
+
+          <li class="list-group-item bg-transparent border-0 h6 cp-h6 pl-4 row align-middle">
+            <span class="cp-vec-color-orbit cp-vec-size-default cp-vec-ic-folder"></span>
+            <span class="align-middle pl-4">읽기 보충 그룹</span>
+          </li>
+
+        </ul>
+
+        <a class="list-group-item bg-transparent border-0 row align-middle" data-toggle="collapse" >
+          <span class="cp-vec-color-orbit cp-vec-size-default cp-vec-ic-folder"></span>
+          <span class="h6 cp-h6 align-middle pl-4 cp-font-noto-extra-bold"><font size="2">크팟 중학교 1학년 2반</font></span>
+        </a>
+
+
+        <a class="list-group-item bg-transparent border-0 row align-middle" data-toggle="collapse" >
+          <span class="cp-vec-color-orbit cp-vec-size-default cp-vec-ic-folder"></span>
+          <span class="h6 cp-h6 align-middle pl-4 cp-font-noto-extra-bold"><font size="2">크팟 중학교 1학년 3반</font></span>
+        </a>
+
+
+        <a class="list-group-item bg-transparent border-0 row align-middle" data-toggle="collapse" >
+          <span class="cp-vec-color-orbit cp-vec-size-default cp-vec-ic-folder"></span>
+          <span class="h6 cp-h6 align-middle pl-4 cp-font-noto-extra-bold"><font size="2">크팟 중학교 1학년 4반</font></span>
+        </a>
+      </div><!-- END Left -->
+
+
+      <!-- Right -->
+
+      <div class ="cp-bg-color-gray1 cp-color-font" style="width:1070px; margin-left:10px;">
+
+        <!-- 알림 카드 -->
+        <div class="row m-1">
+          <div class="col-md alert alert-success" role="alert">
+            <h4 class="alert-heading">좋아요!</h4>
+            <p>1반 학생들의 문법 성적이 많이 향상 되었어요!</p>
+            <p class="mb-0">문법교재 내용이 어느 정도 체계가 잡히면, 문법교재와 구문교재를 틈틈이 복습하면서,
+              어휘를 본격적으로 공부하도록 지도가 필요합니다. 본격적으로 영어공부를 하려면 어휘력이 받쳐져야 합니다.
+              또한 어휘를 공부하면서도 독해연습이 필요합니다. 예문을 전부 ‘독서’하고 해석 안 되는 문장 표시하고, 구조분석해서 단어를 외우면서 계속 복습하도록 해주세요. </p>
+            </div>
+          </div>
+          <!-- 알림 카드 -->
+
+          <div class="card">
+            <!-- navbar -->
+            <nav id="sideNavWrapper" class="navbar border border-left-0 border-top-0 border-right-0 border-bottom-5">
+              <div class="col align-middle float-left pl-0">
+                <a class="d-inline-flex nav-link p-0" >
+                  <span class="align-self-center cp-font-noto-bold cp-color-font">크팟 중학교 1학년 1반 전체</span>
+                </a>
+              </div>
+              <ul class="col nav justify-content-end float-right  col-md-auto p-0">
+
+                <li class=" col nav-item col-md-auto pl-1 pr-1">
+                  <a class="d-inline-flex nav-link"  >
+                    <span class="align-self-center m-0 pl-1 cp-color-white">수정</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+            <!-- navbar -->
+
+
+            <!-- 클래스 요약 단락-->
+            <% include ./cm_item_1 %>
+            <!-- 클래스 요약 단락-->
+
+            <!-- 카드 리스트 단락 1-->
+            <% include ./cm_item_2 %>
+            <!-- 카드 리스트 단락 1-->
+
+            <!-- 카드 리스트 단락 2-->
+            <% include ./cm_item_3 %>
+            <!-- 카드 리스트 단락 2-->
+
+            <!-- 정보 요약 -->
+            <% include ./cm_item_4 %>
+            <!-- 정보 요약 -->
+
+            <!-- 학생 리스트 -->
+            <% include ./cm_item_5 %>
+            <!-- 학생 리스트 -->
+
+
+          </div>
+
+
+        </div>
+        <!-- END Right -->
+
+      </div>
+    </div>
+
+    <script>
+    function selectStudent(num){
+
+      location.href = "/student_management?num="+num;
+    }
+    </script>
+    
+    <script>
+
+    var ctxLineChart = document.getElementById('lineCahrt').getContext('2d');
+    var lineCahrt = new Chart(ctxLineChart, {
+      type: 'line',
+      data: {
+        labels: ["월", "화", "수", "목", "금"],
+        datasets: [
+          {
+            label: "저저번주",
+
+
+            fill: true,
+            lineTension: 0,
+            backgroundColor: "transparent",
+            borderColor: '#f15765',
+            pointBorderColor: '#da4c59',
+            pointHoverBackgroundColor: '#da4c59',
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: 'miter',
+            borderWidth: 1,
+            pointBackgroundColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverRadius: 5,
+            pointHoverBorderColor: "#fff",
+            pointHoverBorderWidth: 2,
+            pointRadius: 1,
+            data: [90, 84, 84, 83, 84],
+            pointHitRadius: 0,
+            spanGaps: false
+          },
+          {
+            label: "저번주",
+            fill: true,
+            lineTension: 0,
+            backgroundColor: "transparent",
+            borderColor: "#54e69d",
+            pointHoverBackgroundColor: "#44c384",
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: 'miter',
+            borderWidth: 1,
+            pointBorderColor: "#44c384",
+            pointBackgroundColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverRadius: 5,
+            pointHoverBorderColor: "#fff",
+            pointHoverBorderWidth: 2,
+            pointRadius: 1,
+            pointHitRadius: 10,
+            data: [80, 87, 85, 87, 86],
+            spanGaps: false
+          },
+          {
+            label: "이번주",
+            fill: true,
+            lineTension: 0,
+            backgroundColor: "transparent",
+            borderColor: "#d6e89d",
+            pointHoverBackgroundColor: "#d46684",
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: 'miter',
+            borderWidth: 1,
+            pointBorderColor: "#492d84",
+            pointBackgroundColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverRadius: 5,
+            pointHoverBorderColor: "#fff",
+            pointHoverBorderWidth: 2,
+            pointRadius: 1,
+            pointHitRadius: 10,
+            data: [83, 81, 91, 84, 87],
+            spanGaps: false
+          }
+        ]
+      }
+    });
+
+
+    var ctxBarChart = document.getElementById('barChart').getContext('2d');
+    var barChart = new Chart(ctxBarChart, {
+      type: 'bar',
+      options:
+      {
+        scales:
+        {
+          xAxes: [{
+            display: false
+          }],
+          yAxes: [{
+            display: false
+          }],
+        },
+        legend: {
+          display: false
+        }
+      },
+      data: {
+        labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "November", "December"],
+        datasets: [
+          {
+            label: "접속자 수",
+            backgroundColor: [
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)'
+            ],
+            borderColor: [
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)'
+            ],
+            borderWidth: 1,
+            data: [35, 49, 55, 68, 81, 95, 85, 40, 30, 27, 22, 15]
+          }
+        ]
+      }
+    });
+    </script>
+  </body>
+  </html>

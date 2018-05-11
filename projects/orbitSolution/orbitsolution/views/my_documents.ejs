@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <% include ./cp-head %>
+</head>
+
+<style type="text/css">
+html, body {
+  height:100%;
+}
+
+.full {
+  height: 100%;
+}
+
+</style>
+
+
+<body class="body-class" >
+  <!-- Header 구문-->
+  <header id="header" class="cp-navbar">
+    <nav class="navbar navbar-expand-md navbar-light cp-bg-color-white" >
+      <a class="navbar-brand" href="/" >
+        <img id="btnBack" alt="orbit" src="/asset/img/img_orbit_bi_293x72.png">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link " href="/class_management">반 관리</a>
+          <a class="nav-item nav-link" href="/work_dashboard">과제 현황</a>
+          <a class="nav-item nav-link active" href="/">학습 자료</a>
+          <a class="nav-item nav-link" href="/contents_store">자료실</a>
+        </div>
+      </div>
+
+      <div  class="navbar-nav float-md-right">
+        <li  class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Jason 선생님</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" >정보 변경</a>
+            <a class="dropdown-item" >로그아웃</a>
+          </div>
+        </li>
+      </div>
+    </nav>
+  </header>
+  <!-- Header 구문-->
+
+
+  <div class="pt-5 container-fluid full">
+    <div class="row p-2 cp-bg-color-gray1 section fp-auto-height-responsive" style="height:100%;">
+      <!-- Left -->
+      <div class ="cp-shadow-card cp-left-menu col-md-2 pl-4 cp-bg-color-white cp-color-font" >
+        <div class="h5 cp-h5 pl-2 pt-3 pb-2 border-white cp-font-noto-regular align-top">전체폴더</div>
+        <a class="list-group-item bg-transparent border-0 row align-middle" data-toggle="collapse" href="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">
+          <span class="cp-vec-color-primary cp-vec-size-default cp-vec-ic-folder-open"></span>
+          <span class="h6 cp-h6 align-middle pl-4 cp-font-noto-extra-bold"><font size="2">크팟 중학교</font></span>
+        </a>
+        <ul class="col collapse multi-collapse font-weight-normal cp-font-noto-extra-bold show" id="multiCollapseExample1">
+
+          <li class="list-group-item bg-transparent border-0 h6 cp-h6 pl-4 row align-middle">
+            <span class="cp-vec-color-primary cp-vec-size-default cp-vec-ic-folder-open"></span>
+            <span class="cp-color-primary align-middle pl-4">1학년 1학기</span>
+          </li>
+          <li class="list-group-item bg-transparent border-0 h6 cp-h6 pl-4 row align-middle">
+            <span class="cp-vec-color-orbit cp-vec-size-default cp-vec-ic-folder"></span>
+            <span class="align-middle pl-4">1학년 2학기</span>
+
+          </li>
+          <li class="list-group-item bg-transparent border-0 h6 cp-h6 pl-4 row align-middle">
+            <span class="cp-vec-color-orbit cp-vec-size-default cp-vec-ic-folder"></span>
+            <span class="align-middle pl-4">2학년 1학기</span>
+
+          </li>
+
+          <li class="list-group-item bg-transparent border-0 h6 cp-h6 pl-4 row align-middle">
+            <span class="cp-vec-color-orbit cp-vec-size-default cp-vec-ic-folder"></span>
+            <span class="align-middle pl-4">2학년 2학기</span>
+
+          </li>
+          <li class="list-group-item bg-transparent border-0 h6 cp-h6 pl-4 row align-middle">
+            <span class="cp-vec-color-orbit cp-vec-size-default cp-vec-ic-folder"></span>
+            <span class="align-middle pl-4">3학년 1학기</span>
+          </li>
+
+          <li class="list-group-item bg-transparent border-0 h6 cp-h6 pl-4 row align-middle">
+            <span class="cp-vec-color-orbit cp-vec-size-default cp-vec-ic-folder"></span>
+            <span class="align-middle pl-4">3학년 2학기</span>
+          </li>
+        </ul>
+        <a class="list-group-item bg-transparent border-0 row align-middle cp-font-noto-extra-bold" data-toggle="collapse" >
+          <span class="cp-vec-color-orbit cp-vec-size-default cp-vec-ic-folder"></span>
+          <span class="h6 cp-h6 align-middle pl-4 cp-font-noto-extra-bold"><font size="2">크팟 고등학교</font></span>
+        </a>
+        <ul class="col collapse multi-collapse" id="multiCollapseExample2">
+        </ul>
+      </div><!-- END Left -->
+
+
+      <!-- Right -->
+      <div class ="col ml-1 p-0 cp-bg-color-white cp-color-font">
+
+        <!-- navbar -->
+        <nav id="sideNavWrapper" class="navbar cp-bg-color-white border border-left-0 border-top-0 border-right-0 border-bottom-5" style="z-index: 1;">
+          <div class="col align-middle float-left pl-0">
+            <a class="d-inline-flex nav-link p-0" >
+              <span class="align-self-center cp-vec-color-orbit cp-vec-size-default cp-vec-ic-back"></span>
+              <span class="align-self-center m-0 h6 cp-font-noto-bold col-md-auto pl-3 cp-color-font">1학년 1학기</span>
+            </a>
+          </div>
+          <ul class="col nav justify-content-end float-right  col-md-auto p-0">
+
+            <li class="col nav-item col-md-auto pl-1 pr-1">
+              <a class="d-inline-flex nav-link"  >
+                <span class="align-self-center cp-vec-size-btn cp-vec-color-black cp-vec-ic-add"></span>
+                <span class="align-self-center m-0 pl-1 cp-color-font">폴더 추가</span>
+              </a>
+            </li>
+
+            <li class="col nav-item col-md-auto pl-1 pr-1">
+              <a class="nav-link d-inline-flex" >
+                <span class="align-self-center cp-vec-size-btn cp-vec-color-accent cp-vec-ic-download"></span>
+                <span class="align-self-center m-0 pl-1 cp-color-accent cp-font-noto-bold">영상 다운로드</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <!-- navbar -->
+
+        <!-- breadcrumb -->
+        <ol class="breadcrumb rounded-0 cp-font-size-desc cp-font-noto-regular">
+          <li class="breadcrumb-item"><font color="#2FBDF3">전체폴더</font></li>
+          <li class="breadcrumb-item"><font color="#2FBDF3"><a >크팟 중학교</a></font></li>
+          <li class="breadcrumb-item active">1학년 1학기</li>
+        </ol>
+        <!-- breadcrumb -->
+
+
+        <!-- START movie_clip -->
+        <% include ./movie_clip %>
+        <!-- END movie_clip -->
+
+        <!-- START md_footer_menu -->
+        <% include ./md_footer_menu %>
+        <!-- END md_footer_menu -->
+
+      </div>
+      <!-- END Right -->
+
+    </div>
+  </div>
+
+</div>
+
+<!-- Include Required Prerequisites -->
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+
+<!-- Include Date Range Picker -->
+<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+
+<script language="JavaScript">
+
+var urlArray = JSON.parse('<%-JSON.stringify(url)%>');
+
+var date_start = '2017-09-17';
+var date_end = '2017-09-20';
+
+var selectNum = -1;
+var selectedNum = -1;
+
+function selectYoutube(num){
+  selectNum = num;
+  var footer = document.getElementById('footerMenu');
+  for(var i=0; i<8; i++)
+  {
+    if(selectNum == i)
+    {
+      if(selectedNum == selectNum)
+      {
+        selectedNum = -1;
+        footer.style.visibility = 'hidden';
+        document.getElementById('youtubeImage' + i).style.backgroundColor = "";
+      }
+      else {
+        footer.style.visibility = '';
+        selectedNum = selectNum;
+        document.getElementById('youtubeImage' + i).style.backgroundColor = "#2FBDF3";
+      }
+    }
+    else {
+      document.getElementById('youtubeImage' + i).style.backgroundColor = "";
+    }
+  }
+}
+
+
+function watchYoutube(){
+  if(selectNum){
+    location.href = "/show?url="+urlArray[selectNum];
+  }
+}
+
+
+function registerYoutube(){
+  if(selectNum){
+    location.href = "/register?url="+urlArray[selectNum];
+  }
+}
+
+
+$(function() {
+  $('input[name="daterange"]').daterangepicker(
+    {
+      locale: {
+        format: 'YYYY-MM-DD'
+      },
+      startDate: '2017-09-17',
+      endDate: '2017-09-20'
+    },
+    function(start, end, label) {
+      date_start = start.format('YYYY-MM-DD');
+      date_end = end.format('YYYY-MM-DD');
+    });
+  });
+
+
+  $(document).on("click", ".open-ModalTaskConfirm", function () {
+    var title = document.getElementById("task_title");
+    var clip = document.getElementById("task_clip");
+    var clipUrl = document.getElementById("task_clip_url");
+    var group = document.getElementById("task_group");
+    var content = document.getElementById("task_content");
+    var date = document.getElementById("task_date");
+    var message = document.getElementById("task_message");
+    $(".modal-body #confirm_clip").val( clip.options[clip.selectedIndex].text );
+    $(".modal-body #confirm_clip_url").val( urlArray[clip.selectedIndex] );
+    $(".modal-body #confirm_title").val( title.value );
+    $(".modal-body #confirm_group").val( group.options[group.selectedIndex].text );
+    $(".modal-body #confirm_content").val( content.options[content.selectedIndex].text );
+    $(".modal-body #confirm_message").val( message.value );
+    $(".modal-body #confirm_date_start").val( date_start );
+    $(".modal-body #confirm_date_end").val( date_end );
+
+    $('#modalTaskConfirm').modal('show');
+  });
+
+  </script>
+
+</body>
+
+
+</html>

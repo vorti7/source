@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<head>
+	<link rel="stylesheet" href="asset/styleRegister.css">
+	<!-- <link rel="stylesheet" href="asset/fonts_cp_noto.css"> -->
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+
+	<style>
+	textarea.autosize { min-width:100%;max-width:100%;min-height:100%;max-height:100%;background-color:transparent; border:0; filter: chroma(color=ffffff);}
+	</style>
+
+</head>
+
+<body class="body-class">
+
+	<header id="header">
+		<nav id="navbar" class="navbar navbar-default">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+
+				<div class="navbar-header" style="float:left">
+					<a class="navbar-brand" href="#">
+						<!--<img id="backBtn" style = "width:30px;height:21px" class="backMark" src="asset/img-vec/btn_back.svg">-->
+						<span style="width:25px;height:25px" id="backBtn" class="backMark"></span>
+						<a id="navTitle" class="navbar-brand" text-align="left" style="float:left;padding-top:17px" href="#"></a>
+					</a>
+				</div>
+				<div class="navbar-header" style="float:right">
+					<a class="navbar-brand" href="#">
+						<a id="saveBtn" style="color:white" class="navbar-brand float-md-right" onclick="save()" href="#">저장</a>
+					</a>
+				</div>
+			</div>
+		</nav>
+
+	</header>
+
+	<div id="main" class="container-fluid">
+		<div id="videoContainer">
+			<div class="row">
+				<div id = "leftContainer" class="col-xs-6">
+					<div id="video" class="col-xs-12">
+						<!-- Youtube 영상 해당 위치 표시  -->
+						<iframe id="player" align="middle" width="100%" height="100%" src="https://www.youtube.com/embed/<%=youtube%>?rel=0&enablejsapi=1&controls=0&modestbranding=0" frameborder="0" allowfullscreen=""></iframe>
+						<!-- Youtube 영상 해당 위치 표시  -->
+					</div>
+					<!--Left Page1-->
+					<div id = "titleContainer" class="changeContent">
+						<div id="title" class="col-xs-12">
+							<h3 style="padding-top:5px"><%=title%></h3>
+						</div>
+						<div id="description" class="col-xs-12">
+							<h5 id="subTitle" style="padding-top:20px"></h5>
+						</div>
+					</div>
+					<!--Left Page2-->
+					<div id = "tabContainer" class="changeContent">
+						<div class="tab">
+  						<button class="tabLinks" onclick="openTab(event, 'contentsList')">Content List</button>
+  						<button class="tabLinks" onclick="openTab(event, 'discussion')">Discussion</button>
+						</div>
+						<div id = "contentsList" style = "background-color:#CCCCCC" class="tabContent">
+							<div id = "listContainer">
+
+							</div>
+						</div>
+						<div id = "discussion" style = "background-color:#CCCCCC" class="tabContent">
+							<div id="discussCommentList" style = "background-color:#FFFFFF">
+
+							</div>
+							<div id="discussInputContainer">
+								<input type="text" class="form-control" maxLength="20" style="float:left;width:80%" id = "discussCommentInput">
+								<input type="button" style="float:right;width:20%" class="btn btn-default" id="discussCommentBtn" value="입력">
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<!--Right Page1-->
+				<div id="captionContainer" class="changeContent caption-background col-xs-6 cp-divider-v">
+					<div id="captionTitle" class="span-parent-vertical-align">
+						<div id = "leftCaptionTitle">
+							<div class="normal" style="font-size:1.5em">자막 및 학습 정보</div>
+							<div id = "contentDate" style="font-size:0.8em" class="normal">날짜</div>
+							<span style="width:25px;height:25px;margin-top:8px" class="editting backMark markWhite"></span>
+							<span id = "cancelBtn" style="padding-top:10px;font-size:1.2em;padding-left:50px;text-align:right;position:absolute" class="editting" href="#" onclick="cancelEdit()">취소</span>
+						</div>
+						<div id="rightCaptionTitle">
+							<span id = "cTRecm" style = "font-size:1.2em;padding-right:15px" class="normal"><font color='#FF0000'>♥</font> 0</span>
+							<span id = "correctHistory" width = "100%" style = "font-size:1.2em;white-space:nowrap" class="normal" onclick = 'history()'>편집 기록</span>
+							<span id = "saveMoveBtn" width= "100%" style="font-size:1.2em;white-space:nowrap" class="editting" href="#" onclick="saveEdit()">저장</span>
+						</div>
+					</div>
+
+					<div id="captionEng" class="editCon caption-wrapper span-parent-vertical-align">
+						<div id="ContentE" style="padding-top:30px" class="contentCap captionFont pull-left"></div>
+						<textarea id="EditE" style="padding-top:30px" class="editCap captionFont clickedit autosize initializeContent" style="resize:none"></textarea>
+						<!--<input type="text" id="correctE">-->
+					</div>
+					<div id="captionKor" class="editCon caption-wrapper span-parent-vertical-align">
+						<div id="ContentK" style="padding-top:30px" class="contentCap captionFont pull-left"></div>
+						<textarea id="EditK" style="padding-top:30px" class="editCap captionFont clickedit autosize initializeContent" style="resize:none"></textarea>
+						<!--<input type="text" id="correctK">-->
+					</div>
+					<div id="captionX" class="editCon caption-wrapper span-parent-vertical-align">
+						<div id="ContentX" style="padding-top:30px" class="contentCap captionFontX pull-left"></div>
+						<textarea id="EditX" style="padding-top:30px" class="editCap captionFontX clickedit autosize initializeContent" style="resize:none"></textarea>
+						<!--<input type="text" id="correctX">-->
+					</div>
+				</div>
+
+				<!--Right Page2-->
+				<div id="resultContainer" class="changeContent caption-background col-xs-8 cp-divider-v">
+					<div id = "exContent" class="col-xs-6">
+						<div id="exTitleContainer">
+							<div id="exContentDiffer" style="padding-left:5%;padding-top:2%" class="differFont"></div>
+							<div id="exContentTime" style="padding-left:5%" class="timeFont"></div>
+						</div>
+						<div id="exContentList">
+							<div id="exContentEC">
+								<span id="exContentE">이전 영어 자막</span>
+							</div>
+							<div id="exContentKC">
+								<span id="exContentK">이전 한글 자막</span>
+							</div>
+							<div id="exContentXC">
+								<span id="exContentX">이전 설명 자막</span>
+							</div>
+						</div>
+					</div>
+					<div id = "newContent" class="col-xs-6">
+						<div id="newTitleContainer">
+							<div id="newContentDiffer" style="padding-left:5%;padding-top:2%" class="differFont"></div>
+							<div id="newContentTime" style="padding-left:5%" class="timeFont"></div>
+						</div>
+						<div id="newContentList">
+							<div id="newContentEC">
+								<span id="newContentE">새로운 영어 자막</span>
+							</div>
+							<div id="newContentKC">
+								<span id="newContentK">새로운 한글 자막</span>
+							</div>
+							<div id="newContentXC">
+								<span id="newContentX">새로운 설명 자막</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="container-fluid cp-divider-h" id="toolboxContainer">
+				<span><a href="#"><img id="btnPlay" alt="Play" src="asset/img-vec/btn_play.svg"  onclick = 'play()'></a></span>
+				<span class ="cp-divider-v">
+				<a href="#"><img id="btnRepeat" alt="Repeat" src="asset/img-vec/btn_play_repeat.svg" onclick = 'repeat()'></a></span>
+				<span><a href="#"><img id="btnPrev" alt="Previous" src="asset/img-vec/btn_play_next.svg" onclick = 'prev()'></a></span>
+				<span id="sceneNumber"><a href="#">0/0</a></span>
+				<span class ="cp-divider-v"><a href="#"><img id="btnNext" alt="Next" src="asset/img-vec/btn_play_next.svg" onclick = 'next()'></a></span>
+			</div>
+		</div>
+
+	</div>
+
+	<script type="text/javascript">
+
+		$('.changeContent').hide();
+		$('#titleContainer').show();
+		$('#captionContainer').show();
+		$('#saveBtn').hide();
+		$('.editting').hide();
+		$('.clickedit').hide()
+
+		$('#video').addClass("orVideo");
+
+		document.getElementById("navTitle").innerHTML = '영상 콘텐츠 편집';
+
+//		$('#player').clone().appendTo('#videoShow');
+
+		// 2. This code loads the IFrame Player API code asynchronously.
+		var tag = document.createElement('script');
+
+		tag.src = "https://www.youtube.com/iframe_api";
+		var firstScriptTag = document.getElementsByTagName('script')[0];
+		firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+		// 3. This function creates an <iframe> (and YouTube player)
+		//    after the API code downloads.
+		var player;
+		function onYouTubeIframeAPIReady() {
+			console.log('Download Complete');
+			player = new YT.Player('player', {
+				events: {
+					'onReady': onPlayerReady,
+					'onStateChange': onPlayerStateChange
+				}
+			});
+		}
+/*
+		var contentArray = new Array();
+		'<%for(var i = 0; i<content.length; i++){%>'
+				  contentArray.push(JSON.parse('<%-JSON.stringify(content[i])%>'));
+		'<%}%>'
+*/
+
+		document.getElementById("subTitle").innerHTML = '<%-subTitle%>';
+
+		var commentList = new Array();
+		var exContentArray = JSON.parse('<%-JSON.stringify(content)%>');
+		var contentArray = JSON.parse('<%-JSON.stringify(content)%>');
+		var playingTime = 0;
+		var contentNum = -1;
+		var startTime = 0;
+		var finishTime = contentArray[0].content.start;
+		var repeatTrigger = 0;
+		var pauseTrigger = 1;
+		var aConArray;
+
+		var differCheck = "";
+
+		var pageTrigger = 0;
+
+		document.getElementById("sceneNumber").innerHTML = 0+"/"+contentArray.length;
+		// 4. The API will call this function when the video player is ready.
+		function onPlayerReady(event) {
+			console.log("It's Ready")
+			event.target.playVideo();
+		}
+
+		// 5. The API calls this function when the player's state changes.
+		//    The function indicates that when playing a video (state=1),
+		//    the player should play for six seconds and then stop.
+		var done = false;
+		function onPlayerStateChange(event) {
+			if (event.data == YT.PlayerState.PLAYING && !done) {
+				done = true;
+				setInterval("showingContent()",100);
+			}
+			if (event.data == 2) {
+				console.log(player.getCurrentTime())
+			}
+		}
+		function stopVideo() {
+			player.stopVideo();
+			console.log(player.getCurrentTime());
+		}
+
+		function showingContent(){
+			playingTime = player.getCurrentTime();
+
+			if(repeatTrigger){
+				if(playingTime>finishTime){
+					player.seekTo(startTime, true);
+					return;
+				}
+			}else{
+				if(playingTime>finishTime){
+					if(pauseTrigger&&contentNum>=0){
+						console.log('Youtube Paused(Writing time)'+"#"+contentNum+">"+playingTime);
+						player.pauseVideo();
+						pauseTrigger = 0;
+					}
+//					document.getElementById("ContentE").innerHTML = "";
+//					document.getElementById("ContentK").innerHTML = "";
+//					document.getElementById("ContentX").innerHTML = "";
+				}
+			}
+
+			for(var i = contentNum+1; i<contentArray.length; i++){
+				if(playingTime>=contentArray[i].content.start*1 && playingTime<contentArray[i].content.finish*1){
+					console.log(contentArray[i]);
+					pauseTrigger = 1;
+					document.getElementById("ContentE").innerHTML = contentArray[i].content.contentE;
+					document.getElementById("ContentK").innerHTML = contentArray[i].content.contentK;
+					document.getElementById("ContentX").innerHTML = contentArray[i].content.contentX;
+					document.getElementById("EditE").innerHTML = contentArray[i].content.contentE.replace('<br />','\r\n');
+					document.getElementById("EditK").innerHTML = contentArray[i].content.contentK.replace('<br />','\r\n');
+					document.getElementById("EditX").innerHTML = contentArray[i].content.contentX.replace('<br />','\r\n');
+					document.getElementById("contentDate").innerHTML = contentArray[i].content.time.substring(0,10)+" / "+contentArray[i].content.time.substring(11,19)+" 에 업데이트 됨.";
+					document.getElementById("sceneNumber").innerHTML = (i+1)+"/"+contentArray.length;
+					contentNum = i;
+					startTime = contentArray[i].content.start;
+					finishTime = contentArray[i].content.finish;
+					break;
+				}
+			}
+		}
+
+		function play(){
+			console.log('playbutton clicked')
+			if (player.getPlayerState()==1) {
+				player.pauseVideo();
+			}
+			if (player.getPlayerState()==2) {
+				player.playVideo();
+			}
+		}
+
+		function repeat(){
+			if(repeatTrigger){
+				repeatTrigger = 0;
+			}else{
+				repeatTrigger = 1;
+			}
+		}
+
+		function prev(){
+			var nextContent = contentNum-1;
+			if(nextContent<0){
+				nextContent = 0;
+			}
+			document.getElementById("ContentE").innerHTML = contentArray[nextContent].content.contentE;
+			document.getElementById("ContentK").innerHTML = contentArray[nextContent].content.contentK;
+			document.getElementById("ContentX").innerHTML = contentArray[nextContent].content.contentX;
+			document.getElementById("EditE").innerHTML = contentArray[nextContent].content.contentE.replace('<br />','\r\n');
+			document.getElementById("EditK").innerHTML = contentArray[nextContent].content.contentK.replace('<br />','\r\n');
+			document.getElementById("EditX").innerHTML = contentArray[nextContent].content.contentX.replace('<br />','\r\n');
+			document.getElementById("contentDate").innerHTML = contentArray[nextContent].content.time.substring(0,10)+" / "+contentArray[nextContent].content.time.substring(11,19)+" 에 업데이트 됨.";
+			document.getElementById("sceneNumber").innerHTML = (nextContent+1)+"/"+contentArray.length;
+			contentNum = nextContent;
+			startTime = contentArray[nextContent].content.start;
+			finishTime = contentArray[nextContent].content.finish;
+			player.seekTo(contentArray[nextContent].content.start, true);
+		}
+
+		function next(){
+			var nextContent = contentNum+1;
+			console.log(contentNum+"/"+nextContent);
+			if(nextContent>=contentArray.length){
+				nextContent = contentArray.length-1;
+			}
+			player.seekTo(contentArray[nextContent].content.start, true);
+			play();
+		}
+
+		function findDiffer(exW, newW){
+			var exWord = exW.replace(/<br>/g, '<br />');
+			var newWord = newW.replace(/<br>/g, '<br />');
+			console.log(exW+"/"+exWord);
+			console.log(newW+"/"+newWord);
+    	var resultObject = new Object();
+    	var exArray = new Array();
+    	var newArray = new Array();
+  	  var lineChecker = 0;
+  	  resultObject.resultEx = "";
+  	  resultObject.resultNew = "";
+			var exEnterArray = new Array();
+			var newEnterArray = new Array();
+
+			if(exWord==newWord){
+				resultObject.resultEx = exWord;
+	  	  resultObject.resultNew = newWord;
+				return resultObject;
+			}
+
+			if(exWord==""){
+				resultObject.resultEx = exWord;
+	  	  resultObject.resultNew = "<font color='#FF0000'>"+newWord+"</font>";
+				return resultObject;
+			}
+			if(newWord==""){
+				resultObject.resultEx = "<font color='#0000FF'>"+exWord+"</font>";
+	  	  resultObject.resultNew = newWord;
+				return resultObject;
+			}
+
+  	  for(var i = 0 ; i < exWord.length ; i++){
+  	    if(exWord.substring(i,(i+6))=='<br />'){
+  	      exArray.push(exWord.substring(lineChecker,i));
+  	      lineChecker = i+6;
+  	      i = i+6;
+					exEnterArray.push(exArray.length-1);
+  	    }else if(exWord.substring(i,(i+2))=='. '){
+  	      exArray.push(exWord.substring(lineChecker,i+1));
+  	      lineChecker = i+2;
+  	      i = i+2;
+  	    }else if(i==exWord.length-1){
+  	      exArray.push(exWord.substring(lineChecker,i+1));
+  	      break;
+  	    }
+  	  }
+  	  lineChecker = 0;
+  	  for(var i = 0 ; i < newWord.length ; i++){
+  	    if(newWord.substring(i,(i+6))=='<br />'){
+  	      newArray.push(newWord.substring(lineChecker,i));
+  	      lineChecker =i+6;
+  	      i = i+6;
+					newEnterArray.push(newArray.length-1);
+  	    }else if(newWord.substring(i,(i+2))=='. '){
+  	      newArray.push(newWord.substring(lineChecker,i+1));
+  	      lineChecker = i+2;
+  	      i = i+2;
+  	    }else if(i==newWord.length-1){
+  	      newArray.push(newWord.substring(lineChecker,i+1));
+					break;
+  	    }
+  	  }
+
+  	  lineChecker = 0;
+
+
+  	  if(exArray.length==0){
+  	    resultObject.resultNew+="<font color='#FF0000'>";
+				resultObject.resultNew+=newWord;
+  	    resultObject.resultNew+="</font>";
+  	  }
+
+  	  for(var i = 0; i<exArray.length; i++){
+  	    for(var j = lineChecker; j<newArray.length; j++){
+  	      if(exArray[i]==newArray[j]){
+  	        resultObject.resultEx+=exArray[i];
+						if(i!=exArray.length-1){
+							if(exEnterArray.indexOf(i)>0){
+								resultObject.resultEx+='<br />';
+							}else{
+								resultObject.resultEx+=' ';
+							}
+						}
+  	        if(lineChecker!=j){
+  	          resultObject.resultNew+="<font color='#FF0000'>";
+  	          for(var k = lineChecker; k<j; k++){
+								resultObject.resultNew+=newArray[k];
+  	            if(k!=newArray.length-1){
+									if(newEnterArray.indexOf(k)>0){
+										console.log('br')
+										resultObject.resultNew+='<br />';
+									}else{
+										resultObject.resultNew+=' ';
+									}
+								}
+  	          }
+  	          resultObject.resultNew+="</font>";
+  	        }
+  	        resultObject.resultNew+=newArray[j];
+						if(j!=newArray.length-1){
+							if(newEnterArray.indexOf(j)>0){
+								resultObject.resultNew+='<br />';
+								console.log('br')
+							}else{
+								resultObject.resultNew+=' ';
+							}
+						}
+  	        lineChecker = j+1;
+  	        break;
+  	      }else if(j==newArray.length-1){
+						if(exEnterArray.indexOf(i)>0){
+  	        	resultObject.resultEx+="<font color='#0000FF'>"+exArray[i]+"<br /></font>";
+						}else{
+  	        	resultObject.resultEx+="<font color='#0000FF'>"+exArray[i]+" "+"</font>";
+						}
+  	      }
+  	    }
+  	    if(i==exArray.length-1&&lineChecker<newArray.length){
+  	      resultObject.resultNew+="<font color='#FF0000'>";
+  	      for(var k = lineChecker; k<newArray.length; k++){
+  	        resultObject.resultNew+=newArray[k];
+						if(k!=newArray.length-1){
+							if(newEnterArray.indexOf(k)>0){
+								resultObject.resultNew+='<br />';
+							}else{
+								resultObject.resultNew+=' ';
+							}
+						}
+  	      }
+  	      resultObject.resultNew+="</font>";
+  	    }
+  	  }
+			console.log(resultObject.resultEx);
+			console.log(resultObject.resultNew);
+  	  return resultObject;
+  	}
+
+/*
+		$('#nextBtn').click( function() {
+			player.seekTo(contentArray[contentNum].content.finish, true);
+			pauseTrigger = 0;
+			play();
+    })
+*/
+
+/*		$('#finishBtn').click( function() {
+			console.log('Data sended to server database')
+          $.ajax({
+              url: 'http://localhost:8080/postData',
+              dataType: 'json',
+              type: 'POST',
+              data: {'youtube':'<%=youtube%>',
+										 'excontents': JSON.stringify(exContentArray),
+										 'contents':JSON.stringify(contentArray)},
+              success: function(result) {
+							}
+          });
+    })*/
+
+		function history(){
+			commentList = new Array();
+			aConArray = new Array();
+
+//			$('.changeContent').hide();
+//			$('#saveBtn').show();
+			$('#resultContainer').show();
+			$('#tabContainer').show();
+
+			$('#leftContainer').removeClass("col-xs-6");
+			$('#leftContainer').addClass("col-xs-4");
+			$('#video').addClass("chVideo");
+			$('#video').removeClass("orVideo");
+
+//			$('#navbar').css("background", "#00CCFF");
+
+//			document.getElementById("navTitle").innerHTML = (contentNum+1)+"("+contentArray[contentNum].content.start+"~"+contentArray[contentNum].content.finish+') 카드의 새 버젼 저장';
+//			$('#navTitle').css("color", "#FFFFFF");
+
+			pageTrigger = 1;
+
+			var functionVar = new Object();
+			differCheck = "";
+			functionVar = findDiffer(exContentArray[contentNum].content.contentE, contentArray[contentNum].content.contentE);
+			document.getElementById("exContentE").innerHTML = functionVar.resultEx;
+			document.getElementById("newContentE").innerHTML = functionVar.resultNew;
+			if(functionVar.resultEx!=functionVar.resultNew){
+				console.log("("+functionVar.resultEx+"/"+functionVar.resultNew+")")
+				differCheck += "영어 원문";
+			}
+			functionVar = findDiffer(exContentArray[contentNum].content.contentK, contentArray[contentNum].content.contentK);
+			document.getElementById("exContentK").innerHTML = functionVar.resultEx;
+			document.getElementById("newContentK").innerHTML = functionVar.resultNew;
+			if(functionVar.resultEx!=functionVar.resultNew){
+				if(differCheck !=  ""){
+					differCheck += "/";
+				}
+				differCheck += "자막 해석";
+			}
+			functionVar = findDiffer(exContentArray[contentNum].content.contentX, contentArray[contentNum].content.contentX);
+			document.getElementById("exContentX").innerHTML = functionVar.resultEx;
+			document.getElementById("newContentX").innerHTML = functionVar.resultNew;
+			if(functionVar.resultEx!=functionVar.resultNew){
+				if(differCheck !=  ""){
+					differCheck += "/";
+				}
+				differCheck += "설명 글";
+			}
+
+			if(differCheck != ""){
+				differCheck += " 수정"
+			}
+
+			if(exContentArray[contentNum].content.differ){
+				document.getElementById("exContentDiffer").innerHTML = "<font color='#FE642E'>"+exContentArray[contentNum].content.differ+"</font>";
+			}else{
+				document.getElementById("exContentDiffer").innerHTML = "<font color='#FE642E'>"+"Default"+"</font>";
+			}
+			if(differCheck){
+				document.getElementById("newContentDiffer").innerHTML = "<font color='#00CCFF'>"+"(새 버젼)"+differCheck+"</font>";
+			}else{
+				document.getElementById("newContentDiffer").innerHTML = "<font color='#00CCFF'>"+"(새 버젼)"+"변경사항 없음"+"</font>";
+			}
+
+			document.getElementById("exContentTime").innerHTML = "<font color='#FE642E'>"+exContentArray[contentNum].content.time.substring(0,10)+" / "+exContentArray[contentNum].content.time.substring(11,19)+" 에 업데이트 됨."+"</font>";
+			document.getElementById("newContentTime").innerHTML = "";
+
+			$.ajax({
+			              url: 'http://34.210.50.90:3000/postData/getContentList',
+			              dataType: 'json',
+			              type: 'POST',
+			              data: {'youtube':'<%=youtube%>',
+													 'subId': contentArray[contentNum].subId},
+			              success: function(result) {
+											var getList = JSON.parse(result.result);
+											Object.keys(getList).map(function(objectKey, index) {
+    										var value = getList[objectKey];
+												var addOb = new Object();
+												addOb.value = value;
+												addOb.objectKey = objectKey;
+												aConArray.push(addOb);
+//												$('#listContainer').append("<a href='#' class=' list-group-item'><div style='float:left'><div style='font-size:1.5em'>"+value.differ+"</div><div style='font-size:1em'>날짜 - "+value.time.substring(0,10)+"</div></div><div style='float:left;padding-left:5%;padding-top:3%'><div>"+"업데이트중"+"</div></div></a>")
+												if(value.differ){
+													$('#listContainer').prepend("<a href='#' id='list_"+index+"' class='listItem list-group-item' onclick='changeEx("+index+")'><div style='float:left'><div style='font-ssize:1.3em'>"+value.differ+"</div><div style='font-size:0.8em'>날짜 - "+value.time.substring(0,10)+"</div></div><div style='float:right;padding-right:5%;padding-top:1.4%'><div>"+getName()+" 업데이트"+"</div></div></a>")
+												}else{
+													if(objectKey=='default'){
+														$('#listContainer').append("<a href='#' id='list_"+index+"' class='listItem list-group-item' onclick='changeEx("+index+")'><div style='float:left'><div style='font-ssize:1.3em'>"+"Defult"+"</div><div style='font-size:0.8em'>날짜 - "+value.time.substring(0,10)+"</div></div><div style='float:right;padding-right:.1.4%'><div>"+""+"</div></div></a>")
+													}else if(objectKey=='discuss'){
+														Object.keys(value).map(function(obKey, idx) {
+															$('#discussCommentList').append("<div class='discussItem'><div style ='float:left'><div>"+getName()+"</div><div style ='font-size:0.5em'>"+value[obKey].time+"</div></div><div style ='padding-left:5%; float:left'>"+value[obKey].discuss+"</div></div>");
+														});
+													}
+												}
+											});
+										}
+			});
+    }
+
+		function changeEx(i){
+			$(".listItem").css("background", "#FFFFFF");
+			$(".listItem").css("color", "#242526");
+			document.getElementById("list_"+i).style.background = '#FE642E';
+			document.getElementById("list_"+i).style.color = '#FFFFFF';
+			console.log(aConArray[i]);
+
+			var functionVar = new Object();
+			differCheck = "";
+			functionVar = findDiffer(aConArray[i].value.contentE, contentArray[contentNum].content.contentE);
+			document.getElementById("exContentE").innerHTML = functionVar.resultEx;
+			document.getElementById("newContentE").innerHTML = functionVar.resultNew;
+			if(functionVar.resultEx!=functionVar.resultNew){
+				console.log("("+functionVar.resultEx+"/"+functionVar.resultNew+")")
+				differCheck += "영어 원문";
+			}
+			functionVar = findDiffer(aConArray[i].value.contentK, contentArray[contentNum].content.contentK);
+			document.getElementById("exContentK").innerHTML = functionVar.resultEx;
+			document.getElementById("newContentK").innerHTML = functionVar.resultNew;
+			if(functionVar.resultEx!=functionVar.resultNew){
+				if(differCheck !=  ""){
+					differCheck += "/";
+				}
+				differCheck += "자막 해석";
+			}
+			functionVar = findDiffer(aConArray[i].value.contentX, contentArray[contentNum].content.contentX);
+			document.getElementById("exContentX").innerHTML = functionVar.resultEx;
+			document.getElementById("newContentX").innerHTML = functionVar.resultNew;
+			if(functionVar.resultEx!=functionVar.resultNew){
+				if(differCheck !=  ""){
+					differCheck += "/";
+				}
+				differCheck += "설명 글";
+			}
+
+			if(differCheck != ""){
+				differCheck += " 수정"
+			}
+
+			if(aConArray[i].value.differ){
+				document.getElementById("exContentDiffer").innerHTML = "<font color='#FE642E'>"+aConArray[i].value.differ+"</font>";
+			}else{
+				document.getElementById("exContentDiffer").innerHTML = "<font color='#FE642E'>"+"Default"+"</font>";
+			}
+			if(differCheck){
+				document.getElementById("newContentDiffer").innerHTML = "<font color='#00CCFF'>"+"(새 버젼)"+differCheck+"</font>";
+			}else{
+				document.getElementById("newContentDiffer").innerHTML = "<font color='#00CCFF'>"+"(새 버젼)"+"변경사항 없음"+"</font>";
+			}
+
+			document.getElementById("exContentTime").innerHTML = "<font color='#FE642E'>"+aConArray[i].value.time.substring(0,10)+" / "+aConArray[i].value.time.substring(11,19)+" 에 업데이트 됨."+"</font>";
+			document.getElementById("newContentTime").innerHTML = "<font color='#00CCFF'>"+"-"+"</font>";
+
+		}
+
+		function openTab(evt, tab) {
+    	// Declare all variables
+    	var i, tabContent, tabLinks;
+
+    	// Get all elements with class="tabcontent" and hide them
+    	tabContent = document.getElementsByClassName("tabContent");
+    	for (i = 0; i < tabContent.length; i++) {
+        	tabContent[i].style.display = "none";
+    	}
+
+    	// Get all elements with class="tablinks" and remove the class "active"
+    	tabLinks = document.getElementsByClassName("tabLinks");
+    	for (i = 0; i < tabLinks.length; i++) {
+        	tabLinks[i].className = tabLinks[i].className.replace(" active", "");
+    	}
+
+    	// Show the current tab, and add an "active" class to the button that opened the tab
+    	document.getElementById(tab).style.display = "block";
+    	evt.currentTarget.className += " active";
+		}
+
+		$('#discussCommentBtn').click( function() {
+			$.ajax({
+			              url: 'http://34.210.50.90:3000/postData/addDiscuss',
+			              dataType: 'json',
+			              type: 'POST',
+			              data: {'youtube': '<%=youtube%>',
+													 'subId': contentArray[contentNum].subId,
+												 	 'discuss': $('#discussCommentInput').val()},
+			              success: function(result) {
+											$('#discussCommentList').append("<div class='discussItem'><div style ='float:left'><div>"+getName()+"</div><div style ='font-size:0.5em'>"+result.result+"</div></div><div style ='padding-left:5%; float:left'>"+$('#discussCommentInput').val()+"</div></div>")
+										}
+			          });
+
+    })
+
+		$('#backBtn').click( function() {
+			if(pageTrigger){
+				document.getElementById("navTitle").innerHTML = '영상 콘텐츠 편집';
+				$('#listContainer *').remove();
+				$('#discussCommentList *').remove();
+
+				$('#saveBtn').hide();
+				$('.changeContent').hide();
+				$('#titleContainer').show();
+				$('#captionContainer').show();
+
+				$('#leftContainer').removeClass("col-xs-4");
+				$('#leftContainer').addClass("col-xs-6");
+				$('#video').removeClass("chVideo");
+				$('#video').addClass("orVideo");
+
+				$('#navbar').css("background", "#FFFFFF");
+				$('#navTitle').css("color", "#242526");
+				$('#backBtn').removeClass("markWhite")
+				pageTrigger = 0;
+			}else{
+				location.href = "/";
+			}
+    })
+
+		function save(){
+			$.ajax({
+			              url: 'http://34.210.50.90:3000/postData/aContent',
+			              dataType: 'json',
+			              type: 'POST',
+			              data: {'youtube': '<%=youtube%>',
+													 'aContent': JSON.stringify(contentArray[contentNum]),
+												 	 'differ': differCheck,
+												 	 'comment': JSON.stringify(commentList)},
+			              success: function(result) {
+										}
+			          });
+		}
+
+		var defaultText = 'Nothing to show';
+
+		var clickedBtn;
+
+		function checkE(e){
+			clickedBtn = e;
+		}
+
+
+
+		function cancelEdit(){
+			$('#captionEng').css("background", "#242526");
+			$('#captionKor').css("background", "#242526");
+			$('#captionX').css("background", "#242526");
+			$('#captionTitle').css("background", "#242526");
+
+			$('.normal').show();
+			$('.editting').hide();
+			$('.editCap').val('');
+    	$('.editCap').hide();
+    	$('.contentCap').show();
+		}
+		function saveEdit(){
+			contentArray[contentNum].content.contentE = $('#EditE').val().replace(/\n/gi, "<br />");
+			$('#captionEng').css("background", "#242526");
+//			$('#ContentE').text(contentArray[contentNum].content.contentE);
+//			contentArray[contentNum].content.contentE = document.getElementById("ContentE").innerHTML.replace("\r\n", "<br />");
+			contentArray[contentNum].content.contentK = $('#EditK').val().replace(/\n/gi, "<br />");
+			$('#captionKor').css("background", "#242526");
+//			$('#ContentK').text(contentArray[contentNum].content.contentK);
+//			contentArray[contentNum].content.contentK = document.getElementById("ContentK").innerHTML.replace("\r\n", "<br />");
+			contentArray[contentNum].content.contentX = $('#EditX').val().replace(/\n/gi, "<br />");
+			$('#captionX').css("background", "#242526");
+//			$('#ContentX').text(contentArray[contentNum].content.contentX);
+			document.getElementById("ContentE").innerHTML = contentArray[contentNum].content.contentE;
+			document.getElementById("ContentK").innerHTML = contentArray[contentNum].content.contentK;
+			document.getElementById("ContentX").innerHTML = contentArray[contentNum].content.contentX;
+//			contentArray[contentNum].content.contentX = document.getElementById("ContentX").innerHTML.replace("\r\n", "<br />");
+
+			$('#captionTitle').css("background", "#242526");
+
+			$('.normal').show();
+			$('.editting').hide();
+			$('.editCap').val('');
+    	$('.editCap').hide();
+    	$('.contentCap').show();
+
+
+			commentList = new Array();
+			aConArray = new Array();
+
+			$('.changeContent').hide();
+			$('#saveBtn').show();
+			$('#resultContainer').show();
+			$('#tabContainer').show();
+
+			$('#leftContainer').removeClass("col-xs-6");
+			$('#leftContainer').addClass("col-xs-4");
+			$('#video').addClass("chVideo");
+			$('#video').removeClass("orVideo");
+			$('#backBtn').addClass("markWhite")
+
+			$('#navbar').css("background", "#00CCFF");
+
+			document.getElementById("navTitle").innerHTML = (contentNum+1)+"("+contentArray[contentNum].content.start+"~"+contentArray[contentNum].content.finish+') 카드의 새 버젼 저장';
+			$('#navTitle').css("color", "#FFFFFF");
+
+			pageTrigger = 1;
+
+			var functionVar = new Object();
+			differCheck = "";
+			functionVar = findDiffer(exContentArray[contentNum].content.contentE, contentArray[contentNum].content.contentE);
+			document.getElementById("exContentE").innerHTML = functionVar.resultEx;
+			document.getElementById("newContentE").innerHTML = functionVar.resultNew;
+			if(functionVar.resultEx!=functionVar.resultNew){
+				console.log("("+functionVar.resultEx+"/"+functionVar.resultNew+")")
+				differCheck += "영어 원문";
+			}
+			functionVar = findDiffer(exContentArray[contentNum].content.contentK, contentArray[contentNum].content.contentK);
+			document.getElementById("exContentK").innerHTML = functionVar.resultEx;
+			document.getElementById("newContentK").innerHTML = functionVar.resultNew;
+			if(functionVar.resultEx!=functionVar.resultNew){
+				if(differCheck !=  ""){
+					differCheck += "/";
+				}
+				differCheck += "자막 해석";
+			}
+			functionVar = findDiffer(exContentArray[contentNum].content.contentX, contentArray[contentNum].content.contentX);
+			document.getElementById("exContentX").innerHTML = functionVar.resultEx;
+			document.getElementById("newContentX").innerHTML = functionVar.resultNew;
+			if(functionVar.resultEx!=functionVar.resultNew){
+				if(differCheck !=  ""){
+					differCheck += "/";
+				}
+				differCheck += "설명 글";
+			}
+
+			if(differCheck != ""){
+				differCheck += " 수정"
+			}
+			if(exContentArray[contentNum].content.differ){
+				document.getElementById("exContentDiffer").innerHTML = "<font color='#FE642E'>"+exContentArray[contentNum].content.differ+"</font>";
+			}else{
+				document.getElementById("exContentDiffer").innerHTML = "<font color='#FE642E'>"+"Default"+"</font>";
+			}
+			if(differCheck){
+				document.getElementById("newContentDiffer").innerHTML = "<font color='#00CCFF'>"+"(새 버젼)"+differCheck+"</font>";
+			}else{
+				document.getElementById("newContentDiffer").innerHTML = "<font color='#00CCFF'>"+"(새 버젼)"+"변경사항 없음"+"</font>";
+			}
+			document.getElementById("exContentTime").innerHTML = "<font color='#FE642E'>"+exContentArray[contentNum].content.time.substring(0,10)+" / "+exContentArray[contentNum].content.time.substring(11,19)+" 에 업데이트 됨."+"</font>";
+			document.getElementById("newContentTime").innerHTML = "<font color='#00CCFF'>"+"-"+"</font>";
+			$.ajax({
+			              url: 'http://34.210.50.90:3000/postData/getContentList',
+			              dataType: 'json',
+			              type: 'POST',
+			              data: {'youtube':'<%=youtube%>',
+													 'subId': contentArray[contentNum].subId},
+			              success: function(result) {
+											var getList = JSON.parse(result.result);
+											Object.keys(getList).map(function(objectKey, index) {
+	   										var value = getList[objectKey];
+												var addOb = new Object();
+												addOb.value = value;
+												addOb.objectKey = objectKey;
+												aConArray.push(addOb);
+												if(value.differ){
+													$('#listContainer').prepend("<a href='#' id='list_"+index+"' class='listItem list-group-item' onclick='changeEx("+index+")'><div style='float:left'><div style='font-ssize:1.3em'>"+value.differ+"</div><div style='font-size:0.8em'>날짜 - "+value.time.substring(0,10)+"</div></div><div style='float:right;padding-right:5%;padding-top:1.4%'><div>"+getName()+ " 업데이트"+"</div></div></a>")
+												}else{
+													if(objectKey=='default'){
+														$('#listContainer').append("<a href='#' id='list_"+index+"' class='listItem list-group-item' onclick='changeEx("+index+")'><div style='float:left'><div style='font-ssize:1.3em'>"+"Defult"+"</div><div style='font-size:0.8em'>날짜 - "+value.time.substring(0,10)+"</div></div><div style='float:right;padding-right:1.4%'><div>"+""+"</div></div></a>")
+													}else if(objectKey=='discuss'){
+														Object.keys(value).map(function(obKey, idx) {
+															console.log(idx);
+															$('#discussCommentList').append("<div class='discussItem'><div style ='float:left'><div>"+getName()+"</div><div style ='font-size:0.5em'>"+value[obKey].time+"</div></div><div style ='padding-left:5%; float:left'>"+value[obKey].discuss+"</div></div>");
+														});
+													}
+												}
+											});
+										}
+			});
+	}
+/*
+		function endEdit(e) {
+    	var input = $(e.target),
+        	label = input && input.prev(),
+					inputId = $(e.target).attr("id")
+    	label.text(input.val() === '' ? defaultText : input.val());
+
+			if(inputId=="EditE"){
+				contentArray[contentNum].content.contentE = input.val();
+				console.log(contentArray[contentNum].content.contentE);
+				$('#captionEng').css("background", "#242526");
+			}else if(inputId=="EditK"){
+				contentArray[contentNum].content.contentK = input.val();
+				console.log(contentArray[contentNum].content.contentK);
+				$('#captionKor').css("background", "#242526");
+			}else if(inputId=="EditX"){
+				contentArray[contentNum].content.contentX = input.val();
+				console.log(contentArray[contentNum].content.contentX);
+				$('#captionX').css("background", "#242526");
+			}
+			$('.normal').show();
+			$('.editting').hide();
+			console.log(contentArray[contentNum]);
+			input.val('');
+    	input.hide();
+    	label.show();
+		}
+*/
+/*
+		$('.clickedit').prev().click(function () {
+			var inputId = $(this).attr("id");
+			console.log(inputId+" clicked")
+			if(inputId=="ContentE"){
+//				$('#EditE').val(document.getElementById("ContentE").innerHTML.replace('<br />','\r\n'));
+				$('#captionEng').css("background", "#00CCCC");
+				$('#captionKor').css("background", "#242526");
+				$('#captionX').css("background", "#242526");
+			}else if(inputId=="ContentK"){
+//				$('#EditK').val(document.getElementById("ContentK").innerHTML.replace('<br />','\r\n'));
+				$('#captionEng').css("background", "#242526");
+				$('#captionKor').css("background", "#00CCCC");
+				$('#captionX').css("background", "#242526");
+			}else if(inputId=="ContentX"){
+//				$('#EditX').val(document.getElementById("ContentX").innerHTML.replace('<br />','\r\n'));
+				$('#captionEng').css("background", "#242526");
+				$('#captionKor').css("background", "#242526");
+				$('#captionX').css("background", "#00CCCC");
+			}
+
+			$('#captionTitle').css("background", "#3399FF");
+			$('.normal').hide();
+			$('.editting').show();
+
+    	$(this).hide();
+    	$(this).next().show().focus();
+
+		});
+
+		$('.clickedit').click(function () {
+			var inputId = $(this).attr("id");
+			console.log(inputId+" focused")
+			if(inputId=="ContentE"){
+				$('#captionEng').css("background", "#00CCCC");
+				$('#captionKor').css("background", "#242526");
+				$('#captionX').css("background", "#242526");
+			}else if(inputId=="ContentK"){
+				$('#captionEng').css("background", "#242526");
+				$('#captionKor').css("background", "#00CCCC");
+				$('#captionX').css("background", "#242526");
+			}else if(inputId=="ContentX"){
+				$('#captionEng').css("background", "#242526");
+				$('#captionKor').css("background", "#242526");
+				$('#captionX').css("background", "#00CCCC");
+			}
+		});
+*/
+	$('.editCon').click(function () {
+		var inputId = $(this).attr("id");
+		console.log(inputId+" clicked")
+
+		$('.contentCap').hide();
+		$('.contentCap').next().show();
+		if(inputId=="captionEng"){
+			$('#captionEng').css("background", "#00CCCC");
+			$('#captionKor').css("background", "#242526");
+			$('#captionX').css("background", "#242526");
+//			document.getElementById("ContentK").innerHTML = $('#EditK').val();
+//			document.getElementById("ContentX").innerHTML = $('#EditX').val();
+			$('#EditE').focus();
+		}else if(inputId=="captionKor"){
+			$('#captionEng').css("background", "#242526");
+			$('#captionKor').css("background", "#00CCCC");
+			$('#captionX').css("background", "#242526");
+//			document.getElementById("ContentE").innerHTML = $('#EditE').val();
+//			document.getElementById("ContentX").innerHTML = $('#EditX').val();
+			$('#EditK').focus();
+		}else if(inputId=="captionX"){
+			$('#captionEng').css("background", "#242526");
+			$('#captionKor').css("background", "#242526");
+			$('#captionX').css("background", "#00CCCC");
+//			document.getElementById("ContentK").innerHTML = $('#EditK').val();
+//			document.getElementById("ContentE").innerHTML = $('#EditE').val();
+			$('#EditX').focus();
+		}
+
+		$('#EditE').val(document.getElementById("ContentE").innerHTML.replace("<br />",'\r\n').replace(/<br>/g,'\r\n'));
+		$('#EditK').val(document.getElementById("ContentK").innerHTML.replace("<br />",'\r\n').replace(/<br>/g,'\r\n'));
+		$('#EditX').val(document.getElementById("ContentX").innerHTML.replace("<br />",'\r\n').replace(/<br>/g,'\r\n'));
+
+		$('#captionTitle').css("background", "#3399FF");
+		$('.normal').hide();
+		$('.editting').show();
+	});
+
+	function getName(){
+		var random = Math.floor(Math.random() * 12) + 1;
+		var name;
+		if(random<=3){
+			name = getName();
+		}else if(random>3&&random<=6){
+			name = "오병주 선생님";
+		}else if(random>6&&random<=9){
+			name = "김동국 선생님";
+		}else if(random>9){
+			name = "구기운 선생님";
+		}
+		return name;
+	}
+
+	</script>
+</body>
+
+</html>

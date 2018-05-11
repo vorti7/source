@@ -1,0 +1,45 @@
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+
+var dataSchema = new Schema({
+  appToken: String,
+  userToken: String,
+//  userTokenFirebase: String,
+  idx: Number,
+  wrdIdxRelated: Number,
+  wrdTitle: String,
+  orbIdxRelated: Number,
+  timeCreated: String,
+  timeExposedStart: String,
+  timeExposedEnd: String,
+  intervalExposed: Number,
+  stateOrbitPass: Number,
+  stateOrbitCurr: Number,
+  modeOrbit: Number,
+  failWrdIdx1: Number,
+  failWrdIdx2: Number,
+  failWrdIdx3: Number,
+  failWrdStr1: String,
+  failWrdStr2: String,
+  failWrdStr3: String,
+  numWrd: Number,
+  numFailWrd1: Number,
+  numFailWrd2: Number,
+  numFailWrd3: Number,
+  numSelect: Number,
+  answerState: Number,
+  oauIdxRelated: Number,
+  isUpdate: Number,
+  modeBetting: Number,
+  wrdMean: String,
+  failMean1: String,
+  failMean2: String,
+  failMean3: String,
+  bettingTime: Number,
+  oblivion: Number,
+  score: Number,
+  preAnswerState: Number,
+  createdTime: Date
+});
+
+module.exports = mongoose.model('data',dataSchema);

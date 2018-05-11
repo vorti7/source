@@ -1,0 +1,69 @@
+
+
+<div style="position:absolute; width:100%; bottom:0px;">
+
+  <div id="footerMenu" class=" cp-footer-background " style="visibility:hidden;">
+
+    <div class="row container" >
+      <div class="container col-md-1 ">
+        <a href="javascript:void(0)" >
+          <div class="row" >
+            <div class="cp-vec-color-white cp-vec-size-large cp-vec-ic-camera" style="margin: auto;" onclick = 'watchYoutube()'/></div>
+          </div>
+          <div class="row" style="margin-top: 10px;">
+            <span class="cp-color-white cp-font-noto-regular"  style="margin: auto;" >영상수업</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="container col-md-1" >
+        <a href="javascript:void(0)" data-toggle="modal" data-target="#modal-1" >
+          <div class="row" >
+            <div style="margin: auto; " class="cp-vec-color-white cp-vec-size-large cp-vec-ic-folder_add"></div>
+          </div>
+          <div class="row" style="margin-top: 10px;">
+            <span  style="margin: auto;" class="cp-color-white cp-font-noto-regular">과제 만들기</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="container col-md-1" >
+        <a href="javascript:void(0)" onclick = 'registerYoutube()' >
+          <div class="row" >
+            <div style="margin: auto;" class="cp-vec-color-white cp-vec-size-large cp-vec-ic-edit" ></div>
+          </div>
+          <div class="row" style="margin-top: 10px;">
+            <span  style="margin: auto;" class="cp-color-white cp-font-noto-regular">편집</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="container col-md-1">
+        <a href="javascript:void(0)">
+          <div class="row" >
+            <img style="margin: auto;" class="cp-vec-color-white cp-vec-size-large cp-vec-ic-exchange"></img>
+          </div>
+          <div class="row" style="margin-top: 10px;">
+            <span  style="margin: auto;" class="cp-color-white cp-font-noto-regular" >삭제</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="container col-md-1">
+        <a href="javascript:void(0)">
+          <div class="row">
+            <div style="margin: auto;" class="cp-vec-color-white cp-vec-size-large cp-vec-ic-download"></div>
+          </div>
+          <div class="row" style="margin-top: 10px;">
+            <span style="margin: auto;" class="cp-color-white cp-font-noto-regular">지도안 출력</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="container col-md-7"></div>
+
+      <% include ./modal_create_task %>
+      <% include ./modal_task_confirm %>
+    </div>
+  </div>
+</div>

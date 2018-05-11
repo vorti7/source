@@ -1,0 +1,93 @@
+
+<!-- #modal 1 -->
+<div class="modal fade" id="modal-1" role="dialog">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <b><h3 class="modal-title">과제 생성 </h3></b>
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      </div>
+
+      <div class="modal-body" style="margin: 20px;">
+
+        <!-- task title -->
+        <div style="vertical-align: middle;" align="center" class="row ">
+          <div class="col-sm-2"><label>과제 제목</label></div>
+          <input type="text" id="task_title" class="col-sm-5"/>
+          <div class="col-sm-5">과제 제목을 적어주세요.</div>
+
+        </div><!-- END task title -->
+
+        <br>
+
+        <!-- task clip -->
+        <div style="vertical-align: middle;" align="center" class="row ">
+          <div class="col-sm-2"><label>과제 영상</label></div>
+
+          <select id="task_clip" class="col-sm-10">
+            <% for(var i=0; i<title.length; i++) { %>
+              <option value="task_clip_<%= i %>"><%= title[i] %></option>
+            <% } %>
+            </select>
+          </div><!-- END task clip -->
+
+
+          <br>
+
+
+          <!-- task group -->
+          <div style="vertical-align: middle;" align="center" class="row ">
+            <div class="col-sm-2"><label>대상</label></div>
+            <select id="task_group" class="col-sm-5">
+              <option value="task_group_1">크팟 중학교 1학년 1반</option>
+              <option value="task_group_2">크팟 중학교 1학년 2반</option>
+              <option value="task_group_3">크팟 중학교 2학년 1반</option>
+              <option value="task_group_4">크팟 중학교 2학년 2반</option>
+              <option value="task_group_5">크팟 중학교 3학년 1반</option>
+              <option value="task_group_6">크팟 중학교 3학년 2반</option>
+            </select>
+            <div class="col-sm-5">과제를 부여할 그룹을 선택해주세요.</div>
+          </div><!-- END task group -->
+          <br>
+          <!-- task date -->
+          <div style="vertical-align: middle;" align="center" class="row ">
+            <div class="col-sm-2"><label>일정</label></div>
+            <input class="col-sm-5" type="text" id="task_date" name="daterange" value="01/01/2015 - 01/31/2015" />
+            <div class="col-sm-5">과제를 시작, 제출할 날짜를<br/> 설정해주세요.</div>
+          </div><!-- END task date -->
+          <br>
+          <!-- task content -->
+          <div style="vertical-align: middle;" align="center" class="row ">
+            <div class="col-sm-2"><label>과제 내용</label></div>
+            <select id="task_content" class="col-sm-5" >
+              <option value="task_content_1">영상학습 후 과제</option>
+              <option value="task_content_2">문제풀이</option>
+              <option value="task_content_3">단어암기</option>
+            </select>
+            <div class="col-sm-5">과제의 내용 선택해주세요.</div>
+          </div><!-- END task content -->
+          <br>
+          <!-- task message -->
+          <div style="vertical-align: middle;" align="center" class="row ">
+            <div class="col-sm-2"><label>메시지</label></div>
+            <div class="col-sm-5">
+              <textarea name="message" id="task_message" style="width:100%;" name="task_message" rows="10" cols="30"> 푸시메시지로 전송될 내용을 입력하세요.</textarea>
+            </div>
+            <div class="col-sm-5">
+              학생에게 보낼 메시지를 입력하세요.<br/>
+              최대 400까지 작성할 수 있으며,<br/>
+              알림에는 앞 20자까지 표시됩니다.<br/>
+              (0/400Byte)
+            </div>
+          </div><!-- END task message -->
+
+        </div><!-- END  -->
+
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <a data-toggle="modal" data-toggle="modal" data-dismiss="modal" title="Add this item" class="open-ModalTaskConfirm btn btn-primary" href="#modalTaskConfirm">과제 생성</a>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal 1 -->

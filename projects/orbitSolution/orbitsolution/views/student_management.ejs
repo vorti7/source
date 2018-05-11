@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="/stylesheets/style.default.css" id="theme-stylesheet">
+  <% include ./cp-head %>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<style>
+.circle {
+  border-radius: 50%;
+  float: left;
+  display: inline-block;
+  margin-right: 20px;
+  /* text styling */
+  font-size: 55px;
+  width: 150px;
+  height: 150px;
+  color: #333;  border: 2px solid #333;
+  line-height: 150px;
+  text-align: center;
+  font-family: Arial;
+}
+.color-1 { background: #fff;}
+</style>
+
+<body class="body-class">
+  <!-- Header 구문-->
+  <header id="header" class="cp-navbar">
+    <nav class="navbar navbar-expand-md navbar-light cp-bg-color-white  ">
+      <a class="navbar-brand" href="/">
+        <img id="btnBack" alt="orbit" src="/asset/img/img_orbit_bi_293x72.png">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" href="/class_management">반 관리</a>
+          <a class="nav-item nav-link " href="/work_dashboard">과제 현황</a>
+          <a class="nav-item nav-link" href="/">학습 자료</a>
+          <a class="nav-item nav-link" href="/contents_store">자료실</a>
+        </div>
+      </div>
+
+      <div  class="navbar-nav float-md-right">
+        <li  class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Jason 선생님</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" >정보 변경</a>
+            <a class="dropdown-item" >로그아웃</a>
+          </div>
+        </li>
+      </div>
+    </nav>
+  </header>
+  <!-- Header 구문-->
+
+
+  <div  class="pt-5  container-fluid">
+    <div class="row p-2 cp-bg-color-gray1 section fp-auto-height-responsive">
+
+      <!-- Left -->
+      <div class ="cp-shadow-card cp-left-menu col-md-2 pl-4 cp-bg-color-white cp-color-font">
+        <div class="h5 cp-h5 pl-2 pt-3 pb-2 border-white cp-font-noto-regular align-top">전체폴더</div>
+
+        <a class="list-group-item bg-transparent border-0 row align-middle" data-toggle="collapse" href="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">
+          <span class="cp-vec-color-primary cp-vec-size-default cp-vec-ic-folder-open"></span>
+          <span class="h6 cp-h6 align-middle pl-4 cp-font-noto-extra-bold"><font size="2">크팟 중학교 1학년 1반</font></span>
+        </a>
+
+        <ul class="col collapse multi-collapse font-weight-normal cp-font-noto-extra-bold" id="multiCollapseExample1">
+
+          <li class="list-group-item bg-transparent border-0 h6 cp-h6 pl-4 row align-middle">
+
+            <span class="cp-vec-color-primary cp-vec-size-default cp-vec-ic-folder-open"></span>
+            <span class="cp-color-primary align-middle pl-4">전체</span>
+          </li>
+
+          <li class="list-group-item bg-transparent border-0 h6 cp-h6 pl-4 row align-middle">
+            <span class="cp-vec-color-orbit cp-vec-size-default cp-vec-ic-folder"></span>
+            <span class="align-middle pl-4">듣기 보충 그룹</span>
+          </li>
+
+          <li class="list-group-item bg-transparent border-0 h6 cp-h6 pl-4 row align-middle">
+            <span class="cp-vec-color-orbit cp-vec-size-default cp-vec-ic-folder"></span>
+            <span class="align-middle pl-4">읽기 보충 그룹</span>
+          </li>
+        </ul>
+
+        <a class="list-group-item bg-transparent border-0 row align-middle" data-toggle="collapse" >
+          <span class="cp-vec-color-orbit cp-vec-size-default cp-vec-ic-folder"></span>
+          <span class="h6 cp-h6 align-middle pl-4 cp-font-noto-extra-bold"><font size="2">크팟 중학교 1학년 2반</font></span>
+        </a>
+
+        <a class="list-group-item bg-transparent border-0 row align-middle" data-toggle="collapse" >
+          <span class="cp-vec-color-orbit cp-vec-size-default cp-vec-ic-folder"></span>
+          <span class="h6 cp-h6 align-middle pl-4 cp-font-noto-extra-bold"><font size="2">크팟 중학교 1학년 3반</font></span>
+        </a>
+
+        <a class="list-group-item bg-transparent border-0 row align-middle" data-toggle="collapse" >
+          <span class="cp-vec-color-orbit cp-vec-size-default cp-vec-ic-folder"></span>
+          <span class="h6 cp-h6 align-middle pl-4 cp-font-noto-extra-bold"><font size="2">크팟 중학교 1학년 4반</font></span>
+        </a>
+      </div><!-- END Left -->
+
+
+      <!-- Right -->
+      <div class ="p-0 cp-bg-color-gray1 cp-color-font" style="width:1070px; margin-left:10px;">
+
+        <div class="card">
+          <!-- navbar -->
+          <% include ./sm_item_1 %>
+          <!-- navbar -->
+
+          <!-- 학생 학습 보고서 -->
+          <% include ./sm_item_2 %>
+          <!-- 학생 학습 보고서 -->
+        </div>
+
+        <!-- 암기 분석 이미지 -->
+        <div class="card" style="margin-top:5px;">
+          <img src="/asset/img/student.png" style="width: 100%; height:100%;" >
+        </div>
+        <!-- 암기 분석 이미지 -->
+
+      </div>
+      <!-- END Right -->
+
+    </div>
+  </div>
+
+
+</body>
+</html>

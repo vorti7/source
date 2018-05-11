@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="/stylesheets/style.default.css" id="theme-stylesheet">
+  <% include ./cp-head %>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body class="body-class">
+  <!-- Header 구문-->
+  <header id="header">
+    <nav class="navbar navbar-expand-md navbar-light cp-bg-color-white  ">
+      <a class="navbar-brand" href="/">
+        <img id="btnBack" alt="orbit" src="/asset/img/img_orbit_bi_293x72.png">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" href="/class_management">반 관리</a>
+          <a class="nav-item nav-link " href="/work_dashboard">과제 현황</a>
+          <a class="nav-item nav-link" href="/">학습 자료</a>
+          <a class="nav-item nav-link" href="/contents_store">자료실</a>
+        </div>
+      </div>
+
+      <div  class="navbar-nav float-md-right">
+        <li  class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Jason 선생님</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" >정보 변경</a>
+            <a class="dropdown-item" >로그아웃</a>
+          </div>
+        </li>
+      </div>
+    </nav>
+  </header>
+  <!-- Header 구문-->
+
+  <div id="fullpage" >
+
+    <div class="card" >
+
+      <div class="container-fluid">
+
+        <!-- Line Chart -->
+        <div class="row">
+          <div class="card col-md chart col-lg-6 col-12">
+            <div class="line-chart bg-white d-flex align-items-center justify-content-center ">
+              <canvas id="lineCahrt"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Line Chart Text -->
+        <div class="row">
+          <div class="col-lg-4">
+            <div class=" card">
+              <div class="card-body">
+                <h3>일일 학습자</h3><small>중복 학습 포함</small>
+                <div class="number text-center">187명</div>
+                <div class="chart">
+                  <canvas id="lineChartText"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Circle Line Chart -->
+        <div class="row">
+          <div class="card col-md col-lg-6 col-12">
+            <div class="p-3">
+              <i class="fa fa-bar-chart-o fa-fw"></i> 영상 과제 접속 추이
+            </div>
+            <canvas id="lineChartCircle" ></canvas>
+          </div>
+        </div>
+
+        <!-- Bar Chart Color -->
+        <div class="row">
+          <div class="card col-md  col-lg-6 col-12">
+            <div class="p-3">
+              <i class="fa fa-bar-chart-o fa-fw"></i> 성적 그래프
+            </div>
+            <canvas id="barChartColor" ></canvas>
+          </div>
+        </div>
+
+        <!-- Bar Chart -->
+        <div class="row">
+          <div class="card col-md bar-chart bg-white col-lg-6 col-12">
+            <div class="title"><strong class="text-violet">95%</strong><br><small>평균 접속자 수</small></div>
+            <canvas id="barChart"></canvas>
+          </div>
+        </div>
+
+
+        <!-- pie Chart -->
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="work-amount card">
+              <div class="card-close">
+                <div class="dropdown">
+                  <button type="button" id="closeCard" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                  <div aria-labelledby="closeCard" class="dropdown-menu has-shadow"><a href="javascript:void(0)" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="javascript:void(0)" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
+                </div>
+              </div>
+              <div class="card-body">
+                <h3>학습 시간</h3><small>평균 학습 시간입니다.</small>
+                <div class="chart text-center">
+                  <div class="text"><strong>90</strong><br><span>Hours</span></div>
+                  <canvas id="pieChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Circle Chart -->
+        <div class="row">
+          <div class="card col-md  col-lg-6 col-12">
+            <div class="p-3">
+              <i class="fa fa-bar-chart-o fa-fw"></i> 올해 평균
+            </div>
+            <canvas id="circleChart" ></canvas>
+          </div>
+        </div>
+
+
+        <!-- radar chart -->
+        <div class="row">
+          <div class="card col-md  col-lg-6 col-12">
+            <div class="p-3">
+              <i class="fa fa-bar-chart-o fa-fw"></i> 학년 평균
+            </div>
+            <canvas id="radarChart" ></canvas>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+  var ctxLineChartCircle = document.getElementById('lineChartCircle').getContext('2d');
+  var lineChartCircle = new Chart(ctxLineChartCircle, {
+    type: 'line',
+    data: {
+      labels: ['월', '화', '수', '목', '금', '토', '일'],
+      datasets: [{
+        label: '지난주',
+        data: [91, 89, 73, 87, 76, 83, 77],
+        backgroundColor: "rgba(153,255,51,0.6)"
+      }, {
+        label: '이번주',
+        data: [82, 99, 85, 75, 92, 83, 90],
+        backgroundColor: "rgba(255,153,0,0.6)"
+      }]
+    }
+  });
+
+  var ctxLineChartText = document.getElementById('lineChartText').getContext('2d');
+  var lineChartText = new Chart(ctxLineChartText, {
+    type: 'line',
+    options: {
+      scales: {
+        xAxes: [{
+          display: true,
+          gridLines: {
+            display: false
+          }
+        }],
+        yAxes: [{
+          ticks: {
+            max: 40,
+            min: 0,
+            stepSize: 0.5
+          },
+          display: false,
+          gridLines: {
+            display: false
+          }
+        }]
+      },
+      legend: {
+        display: false
+      }
+    },
+    data: {
+      labels: ["10시", "12시", "2시", "4시", "6시", "8시", "10시"],
+      datasets: [
+        {
+          label: "학습자",
+          fill: true,
+          lineTension: 0,
+          backgroundColor: "transparent",
+          borderColor: '#6ccef0',
+          pointBorderColor: '#59c2e6',
+          pointHoverBackgroundColor: '#59c2e6',
+          borderCapStyle: 'butt',
+          borderDash: [],
+          borderDashOffset: 0.0,
+          borderJoinStyle: 'miter',
+          borderWidth: 3,
+          pointBackgroundColor: "#59c2e6",
+          pointBorderWidth: 0,
+          pointHoverRadius: 4,
+          pointHoverBorderColor: "#fff",
+          pointHoverBorderWidth: 0,
+          pointRadius: 4,
+          pointHitRadius: 0,
+          data: [20, 28, 30, 22, 24, 27, 31],
+          spanGaps: false
+        }
+      ]
+    }
+  });
+
+
+  var ctxPieChart = document.getElementById('pieChart').getContext('2d');
+  var pieChart = new Chart(ctxPieChart, {
+    type: 'doughnut',
+    options: {
+      cutoutPercentage: 80,
+      legend: {
+        display: false
+      }
+    },
+    data: {
+      labels: [
+        "First",
+        "Second",
+        "Third",
+        "Fourth"
+      ],
+      datasets: [
+        {
+          data: [300, 50, 100, 60],
+          borderWidth: [0, 0, 0, 0],
+          backgroundColor: [
+            '#44b2d7',
+            "#59c2e6",
+            "#71d1f2",
+            "#96e5ff"
+          ],
+          hoverBackgroundColor: [
+            '#44b2d7',
+            "#59c2e6",
+            "#71d1f2",
+            "#96e5ff"
+          ]
+        }]
+      }
+    });
+
+    var pieChart = {
+      responsive: true
+    };
+
+
+    var ctxLineChart = document.getElementById('lineCahrt').getContext('2d');
+    var lineCahrt = new Chart(ctxLineChart, {
+      type: 'line',
+      data: {
+        labels: ["월", "화", "수", "목", "금"],
+        datasets: [
+          {
+            label: "1주",
+
+
+            fill: true,
+            lineTension: 0,
+            backgroundColor: "transparent",
+            borderColor: '#f15765',
+            pointBorderColor: '#da4c59',
+            pointHoverBackgroundColor: '#da4c59',
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: 'miter',
+            borderWidth: 1,
+            pointBackgroundColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverRadius: 5,
+            pointHoverBorderColor: "#fff",
+            pointHoverBorderWidth: 2,
+            pointRadius: 1,
+            data: [90, 84, 84, 83, 84],
+            pointHitRadius: 0,
+            spanGaps: false
+          },
+          {
+            label: "2주",
+            fill: true,
+            lineTension: 0,
+            backgroundColor: "transparent",
+            borderColor: "#54e69d",
+            pointHoverBackgroundColor: "#44c384",
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: 'miter',
+            borderWidth: 1,
+            pointBorderColor: "#44c384",
+            pointBackgroundColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverRadius: 5,
+            pointHoverBorderColor: "#fff",
+            pointHoverBorderWidth: 2,
+            pointRadius: 1,
+            pointHitRadius: 10,
+            data: [80, 87, 85, 87, 86],
+            spanGaps: false
+          },
+          {
+            label: "3주",
+            fill: true,
+            lineTension: 0,
+            backgroundColor: "transparent",
+            borderColor: "#d6e89d",
+            pointHoverBackgroundColor: "#d46684",
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: 'miter',
+            borderWidth: 1,
+            pointBorderColor: "#492d84",
+            pointBackgroundColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverRadius: 5,
+            pointHoverBorderColor: "#fff",
+            pointHoverBorderWidth: 2,
+            pointRadius: 1,
+            pointHitRadius: 10,
+            data: [83, 81, 91, 84, 87],
+            spanGaps: false
+          }
+        ]
+      }
+    });
+
+    var ctxBarChart = document.getElementById('barChart').getContext('2d');
+    var barChart = new Chart(ctxBarChart, {
+      type: 'bar',
+      options:
+      {
+        scales:
+        {
+          xAxes: [{
+            display: false
+          }],
+          yAxes: [{
+            display: false
+          }],
+        },
+        legend: {
+          display: false
+        }
+      },
+      data: {
+        labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "November", "December"],
+        datasets: [
+          {
+            label: "접속자 수",
+            backgroundColor: [
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)'
+            ],
+            borderColor: [
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)',
+              'rgb(121, 106, 238)'
+            ],
+            borderWidth: 1,
+            data: [35, 49, 55, 68, 81, 95, 85, 40, 30, 27, 22, 15]
+          }
+        ]
+      }
+    });
+
+    var ctxBarChartColor = document.getElementById("barChartColor").getContext('2d');
+    var barChartColor = new Chart(ctxBarChartColor, {
+      type: 'bar',
+      data: {
+        labels: ['월', '화', '수', '목', '금'],
+        datasets: [{
+          label: '문법',
+          data: [82, 79, 83, 93, 88],
+          backgroundColor: "rgba(153,24,51,1)"
+        }, {
+          label: '독해',
+          data: [75, 83, 80, 85, 73],
+          backgroundColor: "rgba(112,153,0,1)"
+        }, {
+          label: '어휘',
+          data: [78, 85, 90, 80, 79],
+          backgroundColor: "rgba(223,153,255,1)"
+        }]
+      }
+    });
+
+    var ctxRadarChart = document.getElementById("radarChart");
+    var radarChart = new Chart(ctxRadarChart, {
+      type: 'radar',
+      data: {
+        labels: ['월', '화', '수', '목', '금', '토', '일'],
+        datasets: [{
+          label: '1학년',
+          backgroundColor: "rgba(153,255,51,0.4)",
+          borderColor: "rgba(244,112,51,1)",
+          data: [72, 69, 73, 77, 78, 84, 77]
+        }, {
+          label: '2학년',
+          backgroundColor: "rgba(255,153,0,0.4)",
+          borderColor: "rgba(41,153,234,1)",
+          data: [70, 96, 85, 75, 70, 83, 80]
+        }, {
+          label: '3학년',
+          backgroundColor: "rgba(255,153,0,0.4)",
+          borderColor: "rgba(143,123,122,1)",
+          data: [60, 89, 75, 85, 70, 93, 80]
+        }]
+      }
+    });
+
+    var ctxCircleChart = document.getElementById("circleChart").getContext('2d');
+    var circleChart = new Chart(ctxCircleChart, {
+      type: 'pie',
+      data: {
+        labels: ['1학기', '여름방학', '2학기', '겨울방학'],
+        datasets: [{
+          backgroundColor: [
+            "#2ecc71",
+            "#3498db",
+            "#e74c3c",
+            "#34495e"
+          ],
+          data: [12, 19, 24, 7]
+        }]
+      }
+    });
+    </script>
+
+  </body>
+  </html>

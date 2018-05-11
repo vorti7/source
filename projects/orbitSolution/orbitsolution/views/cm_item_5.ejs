@@ -1,0 +1,344 @@
+<!-- 학생 리스트 -->
+<div class="card " style="margin-top: 10px;" >
+
+  <!-- navbar -->
+  <nav id="sideNavWrapper" class="navbar border border-left-0 border-top-0 border-right-0 border-bottom-5">
+    <div class="col align-middle float-left pl-0">
+      <a class="d-inline-flex nav-link p-0" >
+        <span class="align-self-center cp-font-noto-bold cp-color-font">전체 학생 현황</span>
+      </a>
+    </div>
+    <ul class="col nav justify-content-end float-right col-md-auto p-0">
+      <li class=" col nav-item col-md-auto pl-1 pr-1">
+        <a class="d-inline-flex nav-link">
+          <span class="align-self-center m-0 pl-1 cp-color-white">수정</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- navbar -->
+
+  <table class="table table-hover"  align="center" style="table-layout:fixed margin: auto; text-align: center;" id="metaCheckTable">
+    <thead class="thead-inverse">
+      <tr >
+        <th style="padding-bottom:20px; text-align:center  ">순위</th>
+          <th style="padding-bottom:20px; text-align:center">이름</th>
+          <th style="padding-bottom:20px; text-align:center">목표 달성률</th>
+          <th style="text-align:center">문제 풀이<br>점수</th>
+          <th style="padding-bottom:20px; text-align:center">암기율</th>
+          <th style="padding-bottom:20px; text-align:center">전체 진도율</th>
+          <th style="padding-bottom:20px; text-align:center">수업반</th>
+          <th style="text-align:center">개인<br>목표점수</th>
+          <th style="text-align:center">학부모<br>메시지함</th>
+          <th style="padding-bottom:20px; text-align:center">상세분석</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+        <tr>
+
+
+  <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center"> 1</td>
+  <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">엄유선</td>
+  <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">98.3%</td>
+  <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">78.5점</td>
+  <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">65.3%</td>
+  <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">62.2%</td>
+  <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">1학년1반</td>
+  <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">90</td>
+  <td valign=middle style="padding-left:35px;  text-align:center"><a href="javascript:void(0)"><div class="cp-round-btn-white " >보기</div></a></td>
+  <td valign=middle style="padding-left:35px; text-align:center "><a href="javascript:void(0)"><div class="cp-round-btn-white " onclick = 'selectStudent(1)'>보기</div></a></td>
+  </tr>
+ 
+  <tr>
+  <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">2</td>
+  <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">소진헌</th>
+  <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">92.1%</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">96.5점</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">77.5%</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">58.9%</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">1학년1반</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">80</th>
+  <td valign=middle style="padding-left:35px;  text-align:center"><a href="javascript:void(0)"><div class="cp-round-btn-green " >새 알림</div></a></td>
+  <td valign=middle style="padding-left:35px; text-align:center "><a href="javascript:void(0)"><div class="cp-round-btn-white " onclick = 'selectStudent(2)'>보기</div></a></td>
+  </tr>
+
+  <tr>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">3</td>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">임지우</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">89.0%</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">90.3점</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">62.5%</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">58.2%</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">1학년1반</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">90</th>
+  <td valign=middle style="padding-left:35px;  text-align:center"><a href="javascript:void(0)"><div class="cp-round-btn-white " >보기</div></a></td>
+  <td valign=middle style="padding-left:35px; text-align:center "><a href="javascript:void(0)"><div class="cp-round-btn-white " onclick = 'selectStudent(3)'>보기</div></a></td>
+  </tr>
+
+  <tr>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">4</td>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">허효식</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">81.0%</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">93.3점</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">88.5%</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">71.2%</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">1학년1반</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">90</th>
+  <td valign=middle style="padding-left:35px;  text-align:center"><a href="javascript:void(0)"><div class="cp-round-btn-green " >새 알림</div></a></td>
+  <td valign=middle style="padding-left:35px; text-align:center "><a href="javascript:void(0)"><div class="cp-round-btn-white " onclick = 'selectStudent(4)'>보기</div></a></td>
+  </tr>
+
+  <tr>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">5</td>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">민규희</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">91.0%</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">78.3점</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">74.5%</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">78.2%</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">1학년1반</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">95</th>
+  <td valign=middle style="padding-left:35px;  text-align:center"><a href="javascript:void(0)"><div class="cp-round-btn-white " >보기</div></a></td>
+  <td valign=middle style="padding-left:35px; text-align:center "><a href="javascript:void(0)"><div class="cp-round-btn-white " onclick = 'selectStudent(5)'>보기</div></a></td>
+  </tr>
+
+  <tr>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">6</td>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">나경아</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">81.0%</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">84.3점</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">70.5%</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">71.2%</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">1학년1반</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">90</th>
+  <td valign=middle style="padding-left:35px;  text-align:center"><a href="javascript:void(0)"><div class="cp-round-btn-white " >보기</div></a></td>
+  <td valign=middle style="padding-left:35px; text-align:center "><a href="javascript:void(0)"><div class="cp-round-btn-white " onclick = 'selectStudent(6)'>보기</div></a></td>
+  </tr>
+
+  <tr>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">7</td>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">장산들</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">77.0%</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">87.3점</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">93.5%</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">87.2%</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">1학년1반</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">90</th>
+  <td valign=middle style="padding-left:35px;  text-align:center"><a href="javascript:void(0)"><div class="cp-round-btn-white " >보기</div></a></td>
+  <td valign=middle style="padding-left:35px; text-align:center "><a href="javascript:void(0)"><div class="cp-round-btn-white " onclick = 'selectStudent(7)'>보기</div></a></td>
+  </tr>
+
+  <tr>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">8</td>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">전성공</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">87.0%</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">70.3점</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">71.5%</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">93.2%</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">1학년1반</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">95</th>
+  <td valign=middle style="padding-left:35px;  text-align:center"><a href="javascript:void(0)"><div class="cp-round-btn-white " >보기</div></a></td>
+  <td valign=middle style="padding-left:35px; text-align:center "><a href="javascript:void(0)"><div class="cp-round-btn-white " onclick = 'selectStudent(8)'>보기</div></a></td>
+  </tr>
+
+  <tr>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">9</td>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">민형철</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">92.0%</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">91.3점</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">79.5%</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">73.2%</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">1학년1반</th>
+  <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">90</th>
+  <td valign=middle style="padding-left:35px;  text-align:center"><a href="javascript:void(0)"><div class="cp-round-btn-green " >새 알림</div></a></td>
+  <td valign=middle style="padding-left:35px; text-align:center "><a href="javascript:void(0)"><div class="cp-round-btn-white " onclick = 'selectStudent(9)'>보기</div></a></td>
+  </tr>
+
+  <tr>
+  <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">10</td>
+  <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">여경환</th>
+  <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">82.0%</th>
+  <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">85.3점</th>
+  <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">71.5%</th>
+  <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">82.2%</th>
+  <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">1학년1반</th>
+  <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">95</th>
+    <td valign=middle style="padding-left:35px;  text-align:center"><a href="javascript:void(0)"><div class="cp-round-btn-green " >새 알림</div></a></td>
+    <td valign=middle style="padding-left:35px; text-align:center "><a href="javascript:void(0)"><div class="cp-round-btn-white " onclick = 'selectStudent(10)'>보기</div></a></td>
+  </tr>
+
+    <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center"> 11</td>
+    <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">전희영</td>
+    <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">98.3%</td>
+    <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">78.5점</td>
+    <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">65.3%</td>
+    <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">62.2%</td>
+    <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">1학년1반</td>
+    <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">90</td>
+    <td valign=middle style="padding-left:35px;  text-align:center"><a href="javascript:void(0)"><div class="cp-round-btn-white " >보기</div></a></td>
+    <td valign=middle style="padding-left:35px; text-align:center "><a href="javascript:void(0)"><div class="cp-round-btn-white " onclick = 'selectStudent(11)'>보기</div></a></td>
+    </tr>
+
+
+    <tr>
+    <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">12</td>
+    <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">전수중</th>
+    <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">92.1%</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">96.5점</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">77.5%</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">58.9%</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">1학년1반</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">80</th>
+    <td valign=middle style="padding-left:35px;  text-align:center"><a href="javascript:void(0)"><div class="cp-round-btn-green " >새 알림</div></a></td>
+    <td valign=middle style="padding-left:35px; text-align:center "><a href="javascript:void(0)"><div class="cp-round-btn-white " onclick = 'selectStudent(12)'>보기</div></a></td>
+    </tr>
+
+    <tr>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">13</td>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">정태형</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">89.0%</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">90.3점</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">62.5%</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">58.2%</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">1학년1반</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">90</th>
+    <td valign=middle style="padding-left:35px;  text-align:center"><a href="javascript:void(0)"><div class="cp-round-btn-white " >보기</div></a></td>
+    <td valign=middle style="padding-left:35px; text-align:center "><a href="javascript:void(0)"><div class="cp-round-btn-white " onclick = 'selectStudent(13)'>보기</div></a></td>
+    </tr>
+
+    <tr>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">14</td>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">공규진</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">81.0%</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">93.3점</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">88.5%</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">71.2%</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">1학년1반</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">90</th>
+    <td valign=middle style="padding-left:35px;  text-align:center"><a href="javascript:void(0)"><div class="cp-round-btn-white " >보기</div></a></td>
+    <td valign=middle style="padding-left:35px; text-align:center "><a href="javascript:void(0)"><div class="cp-round-btn-white " onclick = 'selectStudent(14)'>보기</div></a></td>
+    </tr>
+
+    <tr>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">15</td>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">서환종</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">91.0%</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">78.3점</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">74.5%</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">78.2%</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">1학년1반</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">95</th>
+    <td valign=middle style="padding-left:35px;  text-align:center"><a href="javascript:void(0)"><div class="cp-round-btn-white " >보기</div></a></td>
+    <td valign=middle style="padding-left:35px; text-align:center "><a href="javascript:void(0)"><div class="cp-round-btn-white " onclick = 'selectStudent(15)'>보기</div></a></td>
+    </tr>
+
+    <tr>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">16</td>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">송수전</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">81.0%</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">84.3점</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">70.5%</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">71.2%</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">1학년1반</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">90</th>
+    <td valign=middle style="padding-left:35px;  text-align:center"><a href="javascript:void(0)"><div class="cp-round-btn-white " >보기</div></a></td>
+    <td valign=middle style="padding-left:35px; text-align:center "><a href="javascript:void(0)"><div class="cp-round-btn-white " onclick = 'selectStudent(16)'>보기</div></a></td>
+    </tr>
+
+    <tr>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">17</td>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">왕수화</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">77.0%</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">87.3점</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">93.5%</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">87.2%</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">1학년1반</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">90</th>
+    <td valign=middle style="padding-left:35px;  text-align:center"><a href="javascript:void(0)"><div class="cp-round-btn-white " >보기</div></a></td>
+    <td valign=middle style="padding-left:35px; text-align:center "><a href="javascript:void(0)"><div class="cp-round-btn-white " onclick = 'selectStudent(17)'>보기</div></a></td>
+    </tr>
+
+    <tr>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">18</td>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">전광선</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">87.0%</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">70.3점</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">71.5%</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">93.2%</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">1학년1반</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">95</th>
+    <td valign=middle style="padding-left:35px;  text-align:center"><a href="javascript:void(0)"><div class="cp-round-btn-white " >보기</div></a></td>
+    <td valign=middle style="padding-left:35px; text-align:center "><a href="javascript:void(0)"><div class="cp-round-btn-white " onclick = 'selectStudent(18)'>보기</div></a></td>
+    </tr>
+
+    <tr>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">19</td>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">표성은</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">92.0%</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">91.3점</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">79.5%</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">73.2%</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">1학년1반</th>
+    <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">90</th>
+    <td valign=middle style="padding-left:35px;  text-align:center"><a href="javascript:void(0)"><div class="cp-round-btn-white " >보기</div></a></td>
+    <td valign=middle style="padding-left:35px; text-align:center "><a href="javascript:void(0)"><div class="cp-round-btn-white " onclick = 'selectStudent(19)'>보기</div></a></td>
+    </tr>
+
+    <tr>
+    <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">20</td>
+    <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">문주선</th>
+    <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">82.0%</th>
+    <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">85.3점</th>
+    <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">71.5%</th>
+    <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">82.2%</th>
+    <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">1학년1반</th>
+    <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">95</th>
+      <td valign=middle style="padding-left:35px;  text-align:center"><a href="javascript:void(0)"><div class="cp-round-btn-white " >보기</div></a></td>
+      <td valign=middle style="padding-left:35px; text-align:center "><a href="javascript:void(0)"><div class="cp-round-btn-white " onclick = 'selectStudent(20)'>보기</div></a></td>
+    </tr>
+
+        <tr>
+        <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">21</td>
+        <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">진예흔</th>
+        <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">87.0%</th>
+        <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">70.3점</th>
+        <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">71.5%</th>
+        <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">93.2%</th>
+        <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">1학년1반</th>
+        <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">95</th>
+        <td valign=middle style="padding-left:35px;  text-align:center"><a href="javascript:void(0)"><div class="cp-round-btn-white " >보기</div></a></td>
+        <td valign=middle style="padding-left:35px; text-align:center "><a href="javascript:void(0)"><div class="cp-round-btn-white " onclick = 'selectStudent(21)'>보기</div></a></td>
+        </tr>
+
+        <tr>
+        <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">22</td>
+        <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">도윤성</th>
+        <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">92.0%</th>
+        <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">91.3점</th>
+        <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">79.5%</th>
+        <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">73.2%</th>
+        <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">1학년1반</th>
+        <th valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">90</th>
+        <td valign=middle style="padding-left:35px;  text-align:center"><a href="javascript:void(0)"><div class="cp-round-btn-white " >보기</div></a></td>
+        <td valign=middle style="padding-left:35px; text-align:center "><a href="javascript:void(0)"><div class="cp-round-btn-white " onclick = 'selectStudent(22)'>보기</div></a></td>
+        </tr>
+
+        <tr>
+        <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">23</td>
+        <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">윤지선</th>
+        <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">82.0%</th>
+        <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">85.3점</th>
+        <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">71.5%</th>
+        <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">82.2%</th>
+        <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">1학년1반</th>
+        <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center">95</th>
+          <td valign=middle style="padding-left:35px;  text-align:center"><a href="javascript:void(0)"><div class="cp-round-btn-white " >보기</div></a></td>
+          <td valign=middle style="padding-left:35px; text-align:center "><a href="javascript:void(0)"><div class="cp-round-btn-white " onclick = 'selectStudent(23)'>보기</div></a></td>
+        </tr>
+
+                          </tbody>
+                        </table>
+
+                      </div>
+                      <!-- 학생 리스트 -->

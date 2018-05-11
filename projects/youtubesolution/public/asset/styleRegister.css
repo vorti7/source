@@ -1,0 +1,500 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+* {
+	font-family: 'Noto Sans KR', sans-serif;
+	line-height: 1.3;
+}
+
+.body-class{
+	background-color: #242526;
+}
+.navbar{
+	overflow: none;
+	z-index: 9999;
+}
+#backBtn{
+	width:auto;
+	height:100%;
+}
+
+.navbar-brand{
+	font-family: 'Noto Sans KR', sans-serif !important;
+	/*color: #ff0000  !important;*/
+	font-weight: 700 !important;
+}
+
+.navbar-duedate{
+	height:50px;
+	display:table;
+}
+
+.span-parent-vertical-align{
+	display:table;
+}
+
+
+.span-child-vertical-align{
+	display:table-cell;
+	vertical-align:middle;
+}
+
+#videoContainer{
+	display: inline-block;
+	top: 60px;
+	margin:0px;
+	left: 0;
+	position: absolute;
+	width: 100%;
+	height: 83%;
+	opacity: 1.0;
+	background-color: #CCCCCC;
+}
+#leftContainer{
+	padding: 0px;
+	display: inline-block;
+	position: absolute;
+	height:100%;
+	left: 0;
+	margin:0px;
+	background-color: #CCCCCC;
+	/*opacity: 1.0;*/
+}
+#video{
+	display: inline-block;
+	position: absolute;
+	width: 100%;
+	top: 0%;
+	height: 50%;
+	background-color: #CCCCCC;
+	/*opacity: 0.7;*/
+}
+#titleContainer{
+	display: inline-block;
+	position: absolute;
+	width: 100%;
+	top: 50%;
+	height: 50%;
+	/*opacity: 0.7;*/
+}
+#title{
+	display: inline-block;
+	position: absolute;
+	top:0%;
+	width: 100%;
+	height: 34%;
+	background-color: #FFFFFF;
+	border:5px solid #CCCCCC;
+	/*opacity: 0.7;*/
+}
+#description{
+	display: inline-block;
+	position: absolute;
+	top:34%;
+	width: 100%;
+	height: 66%;
+	background-color: #FFFFFF;
+	border:5px solid #CCCCCC;
+	/*opacity: 0.7;*/
+}
+#contentsList{
+	display: inline-block;
+	position: absolute;
+	width: 100%;
+	top: 50%;
+	height: 50%;
+	/*opacity: 0.7;*/
+}
+
+#captionContainer{
+	padding: 0px;
+	display: inline-block;
+	position: absolute;
+	height: 100%;
+	right: 0;
+	margin:0px;
+	background-color: #FFFFFF;
+	/*opacity: 1.0;*/
+}
+:focus {
+outline: 0;
+}
+#captionTitle{
+	display: inline-block;
+	position: absolute;
+	top: 0%;
+	width: 100%;
+	height: 15%;
+	border-top:1px solid #FFFFFF;
+	background-color: #242526;
+	/*opacity: 0.7;*/
+}
+#captionEng{
+	display: inline-block;
+	position: absolute;
+	top:15%;
+	width: 100%;
+	height: 15%;
+	border-top:1px solid #FFFFFF;
+	background-color: #242526;
+	/*opacity: 0.7;*/
+}
+
+#captionKor{
+	display: inline-block;
+	position: absolute;
+	top:30%;
+	width: 100%;
+	height: 15%;
+	border-top:1px solid #FFFFFF;
+	background-color: #242526;
+	/*opacity: 0.7;*/
+}
+
+#captionX{
+	display: inline-block;
+	position: absolute;
+	top:45%;
+	width: 100%;
+	height: 55%;
+	border-top:1px solid #FFFFFF;
+	border-bottom:1px solid #FFFFFF;
+	background-color: #242526;
+	/*opacity: 0.7;*/
+}
+
+.caption-background{
+	padding-top: 30px;
+	height:100%;
+}
+
+.desc-background{
+	color:#fff;
+	height:100%;
+}
+
+#resultContainer{
+	padding: 0px;
+	display: inline-block;
+	position: absolute;
+	height: 100%;
+	right: 0;
+	margin:0px;
+	background-color: #FFFFFF;
+}
+
+#exContent{
+	background-color: #FFFFFF;
+	border:3px solid #CCCCCC;
+	height:100%;
+}
+
+#exTitleContainer{
+	display: inline-block;
+	position: absolute;
+	left:0;
+	top:0%;
+	width: 100%;
+	height: 12%;
+	border:1px solid #CCCCCC;
+}
+#exContentList{
+	display: inline-block;
+	position: absolute;
+	left:0;
+	top:12%;
+	width: 100%;
+	height: 58%;
+	border:1px solid #CCCCCC;
+}
+#exCommentList{
+	display: inline-block;
+	position: absolute;
+	left:0;
+	top:70%;
+	width: 100%;
+	height: 20%;
+	border:1px solid #CCCCCC;
+}
+#exContentEC{
+	display: inline-block;
+	position: absolute;
+	left:5%;
+	top:0%;
+	width: 100%;
+	height: 20%;
+}
+#exContentKC{
+	display: inline-block;
+	position: absolute;
+	left:5%;
+	top:20%;
+	width: 100%;
+	height: 40%;
+}
+#exContentXC{
+	display: inline-block;
+	position: absolute;
+	left:5%;
+	top:60%;
+	width: 100%;
+	height: 40%;
+}
+#exInputContainer{
+	display: inline-block;
+	position: absolute;
+	left:0;
+	top:90%;
+	width: 100%;
+	height: 10%;
+	border:1px solid #CCCCCC;
+}
+
+#newContent{
+	background-color: #FFFFFF;
+	border:3px solid #CCCCCC;
+	height:100%;
+}
+
+#newTitleContainer{
+	display: inline-block;
+	position: absolute;
+	left:0;
+	top:0%;
+	width: 100%;
+	height: 12%;
+	border:1px solid #CCCCCC;
+}
+#newContentList{
+	display: inline-block;
+	position: absolute;
+	left:0;
+	top:12%;
+	width: 100%;
+	height: 58%;
+	border:1px solid #CCCCCC;
+}
+#newContentEC{
+	display: inline-block;
+	position: absolute;
+	left:5%;
+	top:0%;
+	width: 100%;
+	height: 20%;
+}
+#newContentKC{
+	display: inline-block;
+	position: absolute;
+	left:5%;
+	top:20%;
+	width: 100%;
+	height: 40%;
+}
+#newContentXC{
+	display: inline-block;
+	position: absolute;
+	left:5%;
+	top:60%;
+	width: 100%;
+	height: 40%;
+}
+#newCommentList{
+	display: inline-block;
+	position: absolute;
+	left:0;
+	top:70%;
+	width: 100%;
+	height: 20%;
+	border:1px solid #CCCCCC;
+}
+#newInputContainer{
+	display: inline-block;
+	position: absolute;
+	left:0;
+	top:90%;
+	width: 100%;
+	height: 10%;
+	border:1px solid #CCCCCC;
+}
+
+#toolboxContainer{
+	width: 100%;
+	position: fixed;
+	background-color: #363a3f;
+	bottom:0;
+	top:auto;
+}
+#toolboxContainer span img{
+	margin:15px;
+	width:36px;
+	height:36px;
+}
+#sceneNumber{
+	color: #fff;
+	font-weight: 900;
+}
+/*
+
+.btn-white-action a{
+	fill:#ffffff;
+}
+
+.btn-white-action a:hover {
+
+fill:#2fbdf4;
+}*/
+
+#btnPrev{
+	-ms-transform: rotate(180deg); /* IE 9 */
+	-webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+	transform: rotate(180deg);
+}
+
+
+@media all and (min-width:970px) {
+	.caption-wrapper span{
+		color:#fff;
+		font-weight: 300;
+		font-size: 24px;
+}
+	.cp-divider-v {
+		border-right: 1px solid #848484;
+		padding-right: auto;
+		margin-right: auto;
+	}
+	.cp-divider-h {
+		margin-top: auto;
+		padding-top: auto;
+		border-top: 1px solid #848484;
+	}
+	.caption-wrapper{
+		padding-left: 70px;
+		width: 100%;
+	}
+	.caption-wrapper span{
+		margin: 0 auto;
+		text-align: center;
+		/*display:inline-block;*/
+	}
+
+	.desc-wrapper{
+		color:#fff;
+		padding-top: 30px;
+		font-weight: 300;
+		overflow: auto;
+
+	}
+
+
+#captionEng{
+	height: 50%;
+	vertical-align: bottom;
+}
+#captionKor{
+	height: 50%;
+	vertical-align: top;
+
+}
+}
+
+@media all and (max-width:969px) {
+	.caption-wrapper span{
+		color:#fff;
+		font-weight: 300;
+		font-size: 18px;
+}
+	#btnGoogleLoginMobileTemp{
+		visibility:visible ;
+	}
+	.cp-divider-v {}
+	.cp-divider-h {
+		margin-top: auto;
+		padding-top: auto;
+		border-top: 1px solid #ccc;
+	}
+	.navbar-duedate{
+		display: none;
+	}
+	#video{
+		display: inline-block;
+		position: relative;
+		width: 100%;
+		height: auto;
+		background-color: #000000;
+		/*opacity: 0.7;*/
+	}
+	.desc-wrapper{
+		color:#fff;
+		padding-top: 30px;
+		font-weight: 300;
+		margin-top: auto;
+		padding-top: auto;
+		border-top: 1px solid #ccc;
+	}
+#toolboxContainer span img{
+	margin:8px;
+	width:24px;
+	height:24px;
+}
+
+#captionEng{
+	width: 100%;
+	height: 50%;
+	vertical-align: middle;
+}
+#captionKor{
+	width: 100%;
+	height: 50%;
+	vertical-align: middle;
+
+}
+}
+
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}

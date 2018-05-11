@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <% include ./cp-head %>
+</head>
+
+<body class="body-class">
+  <!-- Header 구문-->
+  <header id="header" class="cp-navbar">
+    <nav class="navbar navbar-expand-md navbar-light cp-bg-color-white  ">
+      <a class="navbar-brand" href="/">
+        <img id="btnBack" alt="orbit" src="/asset/img/img_orbit_bi_293x72.png">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" href="/class_management">반 관리</a>
+          <a class="nav-item nav-link" href="/work_dashboard">과제 현황</a>
+          <a class="nav-item nav-link" href="/">학습 자료</a>
+          <a class="nav-item nav-link active" href="/contents_store">자료실</a>
+        </div>
+
+      </div>
+
+      <div  class="navbar-nav float-md-right">
+        <li  class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Jason 선생님</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item">정보 변경</a>
+            <a class="dropdown-item">로그아웃</a>
+          </div>
+        </li>
+      </div>
+    </nav>
+
+
+  </header>
+  <!-- Header 구문-->
+
+
+  <div  class=" pt-5 container-fluid">
+
+    <div class="row p-2 cp-bg-color-gray1 section fp-auto-height-responsive">
+
+      <% include ./cp-store-carousel %>
+
+      <div class="row m-2">
+        <div class ="col ml-1 p-0 cp-bg-color-white cp-color-font">
+          <div class="card">
+
+            <!-- navbar -->
+            <nav id="sideNavWrapper" class="navbar border border-left-0 border-top-0 border-right-0 border-bottom-5">
+              <div class="col align-middle float-left pl-0">
+                <a class="d-inline-flex nav-link p-0" >
+
+                  <b><span class="align-self-center m-0 h5 cp-font-noto-bold col-md-auto pl-3 cp-color-font">인기 학습 콘텐츠!</span></b>
+                </a>
+              </div>
+              <ul class="col nav justify-content-end float-right  col-md-auto p-0">
+
+                <li class=" col nav-item col-md-auto pl-1 pr-1">
+                  <a class="d-inline-flex nav-link"  >
+                    <span class="align-self-center m-0 pl-1 cp-color-white">컨텐츠</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+            <!-- navbar -->
+
+
+            <hr>
+
+            <div class="row  m-1">
+
+              <div class="col-md m-2" id="youtubeImage0" >
+                <a href="javascript:void(0)">
+                  <div class="card">
+                    <div class="cp-clip-back"onclick = 'selectYoutube(0)'>
+                      <img style="width:100%; height:0%; " src="https://img.youtube.com/vi/<%= url[0]%>/sddefault.jpg" alt="Card image cap">
+                      <div class="cp-clip-front" >
+                        <div  class="cp-font-noto-regular"><%= title[0]%></div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+
+              <div class="col-md m-2" id="youtubeImage1" >
+                <a href="javascript:void(0)">
+                  <div class="card " >
+                    <div class="cp-clip-back" onclick = 'selectYoutube(1)'>
+                      <img style="width:100%; height:0%; " src="https://img.youtube.com/vi/<%= url[1]%>/sddefault.jpg" alt="Card image cap" >
+                      <div class="cp-clip-front">
+                        <div  class="cp-font-noto-regular"><%= title[1]%></div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+
+
+              <div class="col-md m-2" id="youtubeImage2" >
+                <a href="javascript:void(0)">
+                  <div class="card " >
+                    <div class="cp-clip-back" onclick = 'selectYoutube(2)'>
+                      <img style="width:100%; height:0%; " src="https://img.youtube.com/vi/<%= url[2]%>/sddefault.jpg" alt="Card image cap" >
+                      <div class="cp-clip-front">
+                        <div  class="cp-font-noto-regular"><%= title[2]%></div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+
+
+              <div class="col-md m-2" id="youtubeImage3" >
+                <a href="javascript:void(0)">
+                  <div class="card " >
+                    <div class="cp-clip-back" onclick = 'selectYoutube(3)'>
+                      <img style="width:100%; height:0%; " src="https://img.youtube.com/vi/<%= url[3]%>/sddefault.jpg" alt="Card image cap" >
+                      <div class="cp-clip-front">
+                        <div  class="cp-font-noto-regular"><%= title[3]%></div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+            </div>
+
+            <!-- Second -->
+            <div class="row  m-1">
+
+              <div class="col-md m-2" id="youtubeImage4" >
+                <a href="javascript:void(0)">
+                  <div class="card " >
+                    <div class="cp-clip-back" onclick = 'selectYoutube(4)'>
+                      <img style="width:100%; height:0%; " src="https://img.youtube.com/vi/<%= url[4]%>/sddefault.jpg" alt="Card image cap" >
+                      <div class="cp-clip-front">
+                        <div  class="cp-font-noto-regular"><%= title[4]%></div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+
+              <div class="col-md m-2" id="youtubeImage5" >
+                <a href="javascript:void(0)">
+                  <div class="card " >
+                    <div class="cp-clip-back" onclick = 'selectYoutube(5)'>
+                      <img style="width:100%; height:0%; " src="https://img.youtube.com/vi/<%= url[5]%>/sddefault.jpg" alt="Card image cap" >
+                      <div class="cp-clip-front">
+                        <div  class="cp-font-noto-regular"><%= title[5]%></div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+
+
+              <div class="col-md m-2" id="youtubeImage6" >
+                <a href="javascript:void(0)">
+                  <div class="card " >
+                    <div class="cp-clip-back" onclick = 'selectYoutube(6)'>
+                      <img style="width:100%; height:0%; " src="https://img.youtube.com/vi/<%= url[6]%>/sddefault.jpg" alt="Card image cap" >
+                      <div class="cp-clip-front">
+                        <div  class="cp-font-noto-regular"><%= title[6]%></div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+
+
+              <div class="col-md m-2" id="youtubeImage7" >
+                <a href="javascript:void(0)">
+                  <div class="card " >
+                    <div class="cp-clip-back" onclick = 'selectYoutube(7)'>
+                      <img style="width:100%; height:0%; " src="https://img.youtube.com/vi/<%= url[7]%>/sddefault.jpg" alt="Card image cap" >
+                      <div class="cp-clip-front">
+                        <div  class="cp-font-noto-regular"><%= title[7]%></div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- End Page Container -->
+</div>
+
+<script>
+var urlArray = JSON.parse('<%-JSON.stringify(url)%>');
+function watchYoutube(i){
+  location.href = "/show?url="+urlArray[i];
+}
+
+// Click on the "Jeans" link on page load to open the accordion for demo purposes
+document.getElementById("myBtn").click();
+
+</script>
+
+</body>
+</html>

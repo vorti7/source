@@ -1,0 +1,70 @@
+<!-- 전체 듣기 보충 그룹 테이블 -->
+<div class="card " style="margin-top: 10px;" >
+
+  <!-- navbar -->
+  <nav id="sideNavWrapper" class="navbar border border-left-0 border-top-0 border-right-0 border-bottom-5">
+    <div class="col align-middle float-left pl-0">
+      <a class="d-inline-flex nav-link p-0" >
+
+        <span class="align-self-center cp-font-noto-bold cp-color-font">과제현황: 듣기 보충 그룹</span>
+      </a>
+    </div>
+    <ul class="col nav justify-content-end float-right  col-md-auto p-0">
+
+      <li class=" col nav-item col-md-auto pl-1 pr-1">
+        <a class="d-inline-flex nav-link"  >
+          <span class="align-self-center m-0 pl-1 cp-color-white">듣기 보충 그룹</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- navbar -->
+
+
+  <table class="table table-hover"  align="center" style="table-layout:fixed margin: auto; text-align: center;">
+    <thead class="thead-inverse">
+      <tr>
+        <th style="text-align:center"><b></b></td>
+          <th style="text-align:center"><b>과제 제목</b></th>
+          <th style="text-align:center"><b>과제 영상</b></th>
+          <th width="120px" style="text-align:center"><b>그룹 명</b></th>
+          <th width="100px" style="text-align:center"><b>학생 수</b></th>
+          <th width="120px" style="text-align:center"><b>시작일</b></th>
+          <th width="120px" style="text-align:center"><b>종료일</b></th>
+          <th style="text-align:center"><b>현황</b></th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+        <%
+        for(var i=0; i<content.length; i++)
+        {
+          var contentItem = content[i];
+          var groupItem = group[i];
+          var titleItem = title[i];
+          var clipItem = clip[i];
+          var dateStartItem = date_start[i];
+          var dateEndItem = date_end[i];
+          var messageItem = message[i];
+          %>
+
+          <% if(contentItem == "문제풀이") { %>
+
+            <tr>
+              <td valign=middle class="cp-font-noto-regular " style="padding-top:22px; text-align:center"><font color="#66ff66"><i class="fa fa-circle"></i></font></td>
+              <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:left"><font size="3"><%=titleItem%></font></td>
+              <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:left"><font size="3"><%=clipItem%></font></td>
+              <td valign=middle class="cp-font-noto-regular " style="padding-top:22px; text-align:center"><font color="#aaaaaa">듣기 보충 그룹</font></td>
+              <td valign=middle class="cp-font-noto-regular " style="padding-top:22px; text-align:center"><font color="#aaaaaa">17명</font></td>
+              <td valign=middle class="cp-font-noto-regular " style="padding-top:22px; text-align:center"><font size="3"><%=dateStartItem%></font></td>
+              <td  valign=middle class="cp-font-noto-regular " style="padding-top:22px; text-align:center"><font size="3"><%=dateEndItem%></font></td>
+              <td valign=middle class="cp-font-noto-regular " style="padding-top:18px; text-align:center"> <div class="cp-round-btn-white ">관리</div></td>
+            </tr>
+            <% } %>
+            <% } %>
+
+          </tbody>
+        </table>
+      </div>
+      <!-- 전체 듣기 보충 그룹 테이블 -->

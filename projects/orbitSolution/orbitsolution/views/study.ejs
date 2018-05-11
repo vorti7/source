@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<head>
+  <link rel="stylesheet" href="asset/styleShow.css">
+  <!-- <link rel="stylesheet" href="asset/fonts_cp_noto.css"> -->
+
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+
+</head>
+
+<body class="body-class">
+
+  <div class="container-fluid">
+    <div id="videoContainer">
+      <div id="video" class="col-md-10">
+        <!-- Youtube 영상 해당 위치 표시  -->
+        <iframe id="player" width="100%" height="100%" src="<%= youtube%>" frameborder="0" allowfullscreen=""></iframe>
+        <!-- Youtube 영상 해당 위치 표시  -->
+      </div>
+      <div class="row col-md-2">
+        <a href="#"><img id="btnRepeat" alt="Repeat" src="asset/img-vec/btn_play_repeat.svg" onclick = 'repeat()'></a></span>
+        <a class="nav-item nav-link " href="/class_management">반 관리</a>
+      </div>
+    </div>
+
+  </div>
+
+  <script type="text/javascript">
+  // 2. This code loads the IFrame Player API code asynchronously.
+  var tag = document.createElement('script');
+
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  // 3. This function creates an <iframe> (and YouTube player)
+  //    after the API code downloads.
+  var player;
+  function onYouTubeIframeAPIReady() {
+    console.log('Download Complete');
+    player = new YT.Player('player', {
+      events: {
+        'onReady': onPlayerReady,
+        'onStateChange': onPlayerStateChange
+      }
+    });
+  }
+
+  var contentArray = JSON.parse('<%-JSON.stringify(content)%>');
+  console.log(contentArray);
+  var playingTime = 0;
+  var contentNum = 0;
+  var startTime = 0;
+  var finishTime = contentArray[0].start;
+  var repeatTrigger = 0;
+  document.getElementById("sceneNumber").innerHTML = 0+"/"+contentArray.length;
+
+  // 4. The API will call this function when the video player is ready.
+  function onPlayerReady(event) {
+    console.log("It's Ready")
+    console.log(player.getCurrentTime());
+    event.target.playVideo();
+  }
+
+  // 5. The API calls this function when the player's state changes.
+  //    The function indicates that when playing a video (state=1),
+  //    the player should play for six seconds and then stop.
+  var done = false;
+  function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.PLAYING && !done) {
+      done = true;
+      setInterval("showingContent()",100);
+    }
+    if (event.data == 2) {
+      console.log(player.getCurrentTime())
+    }
+  }
+  function stopVideo() {
+    player.stopVideo();
+    console.log(player.getCurrentTime());
+  }
+
+
+
+  function showingContent(){
+    playingTime = player.getCurrentTime();
+    if(repeatTrigger){
+      if(playingTime>finishTime){
+        player.seekTo(startTime, true);
+        return;
+      }
+    }
+    for(var i = contentNum; i<contentArray.length; i++){
+      if(playingTime>=contentArray[i].start*1 && playingTime<contentArray[i].finish*1){
+        document.getElementById("ContentE").innerHTML = contentArray[i].contentE;
+        document.getElementById("ContentK").innerHTML = contentArray[i].contentK;
+        document.getElementById("ContentX").innerHTML = contentArray[i].contentX;
+        document.getElementById("sceneNumber").innerHTML = (i+1)+"/"+contentArray.length;
+        contentNum = i;
+        startTime = contentArray[i].start;
+        finishTime = contentArray[i].finish;
+        break;
+      }else{
+        document.getElementById("ContentE").innerHTML = "";
+        document.getElementById("ContentK").innerHTML = "";
+        document.getElementById("ContentX").innerHTML = "";
+      }
+    }
+  }
+
+  function repeat(){
+    if(repeatTrigger){
+      repeatTrigger = 0;
+    }else{
+      repeatTrigger = 1;
+    }
+  }
+
+  function prev(){
+    var nextContent = contentNum-1;
+    if(nextContent<0){
+      nextContent = 0;
+    }
+    document.getElementById("ContentE").innerHTML = contentArray[nextContent].contentE;
+    document.getElementById("ContentK").innerHTML = contentArray[nextContent].contentK;
+    document.getElementById("ContentX").innerHTML = contentArray[nextContent].contentX;
+    document.getElementById("sceneNumber").innerHTML = (nextContent+1)+"/"+contentArray.length;
+    contentNum = nextContent;
+    startTime = contentArray[nextContent].start;
+    finishTime = contentArray[nextContent].finish;
+    player.seekTo(contentArray[nextContent].start, true);
+  }
+
+  function next(){
+    var nextContent = contentNum+1;
+    if(nextContent>=contentArray.length){
+      nextContent = contentArray.length-1;
+    }
+    player.seekTo(contentArray[nextContent].start, true);
+  }
+
+  </script>
+</body>
+
+</html>

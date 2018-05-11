@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<head>
+	<link rel="stylesheet" href="asset/styleShow.css">
+	<!-- <link rel="stylesheet" href="asset/fonts_cp_noto.css"> -->
+
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+
+</head>
+
+<body class="body-class">
+
+	<header id="header">
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">
+						<img id="btnBack" alt="Brand" src="asset/img-vec/btn_back.svg">
+						<a class="navbar-brand" href="#">악마는 프라다를 입는다</a>
+					</a>
+				</div>
+				<div class="navbar-duedate span-parent-vertical-align">
+					<span id="dueDate" class="span-child-vertical-align">8월 12일까지 과제 (박윤규 선생님)</span>
+				</div>
+			</div>
+		</nav>
+
+	</header>
+
+
+
+	<div class="container-fluid">
+		<div id="videoContainer">
+			<div id="video" class="col-md-12">
+				<!-- Youtube 영상 해당 위치 표시  -->
+				<iframe id="player" width="100%" height="100%" src=<%= youtube%> frameborder="0" allowfullscreen=""></iframe>
+
+				<!-- Youtube 영상 해당 위치 표시  -->
+			</div>
+
+			<div id="captionContainer" class="cp-divider-h col-xs-12 col-md-12">
+				<div class="caption-background col-xs-12 col-md-8  cp-divider-v">
+					<div id="captionEng" class="caption-wrapper span-parent-vertical-align">
+						<span id="ContentE">여기에 영어 원문이 표시됩니다.</span>
+					</div>
+					<div  id="captionKor" class="caption-wrapper span-parent-vertical-align">
+						<span id="ContentK">여기에 한글 해석이 표시됩니다.</span>
+					</div>
+				</div>
+
+				<div class="desc-wrapper desc-background col-md-4 col-xs-12 ">
+					<span id="ContentX">여기에 설명이 표시됩니다.</span>
+				</div>
+			</div>
+			<div class="container-fluid cp-divider-h" id="toolboxContainer">
+				<span><a href="#"><img id="btnPlay" alt="Play" src="asset/img-vec/btn_play.svg"  onclick = 'play()'></a></span>
+				<span class ="cp-divider-v">
+				<a href="#"><img id="btnRepeat" alt="Repeat" src="asset/img-vec/btn_play_repeat.svg" onclick = 'repeat()'></a></span>
+				<span><a href="#"><img id="btnPrev" alt="Previous" src="asset/img-vec/btn_play_next.svg" onclick = 'prev()'></a></span>
+				<span id="sceneNumber"><a href="#">0/0</a></span>
+				<span class ="cp-divider-v"><a href="#"><img id="btnNext" alt="Next" src="asset/img-vec/btn_play_next.svg" onclick = 'next()'></a></span>
+				<span><a href="#"><img id="btnEngKor" alt="EngKor" src="asset/img-vec/btn_kor_eng.svg"></a></span>
+				<span><a href="#"><img id="btnFavorite" alt="Favorite" src="asset/img-vec/btn_star_empty.svg"></a></span>
+				<span><a href="#"><img id="btnSearch" alt="Favorite" src="asset/img-vec/btn_search.svg"></a></span>
+			</div>
+
+
+		</div>
+
+
+	</div>
+	<!-- <div class="container-fluid" id="captionContainer">
+		<div class="border-1"></div>
+		<div class="caption-background">
+
+		</div>
+	</div> -->
+
+	<script type="text/javascript">
+		// 2. This code loads the IFrame Player API code asynchronously.
+		var tag = document.createElement('script');
+
+		tag.src = "https://www.youtube.com/iframe_api";
+		var firstScriptTag = document.getElementsByTagName('script')[0];
+		firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+		// 3. This function creates an <iframe> (and YouTube player)
+		//    after the API code downloads.
+		var player;
+		function onYouTubeIframeAPIReady() {
+			console.log('Download Complete');
+			player = new YT.Player('player', {
+				events: {
+					'onReady': onPlayerReady,
+					'onStateChange': onPlayerStateChange
+				}
+			});
+		}
+
+
+		var contentArray = JSON.parse('<%-JSON.stringify(content)%>');
+		console.log(contentArray);
+		var playingTime = 0;
+		var contentNum = 0;
+		var startTime = 0;
+		var finishTime = contentArray[0].content.start;
+		var repeatTrigger = 0;
+		document.getElementById("sceneNumber").innerHTML = 0+"/"+contentArray.length;
+
+		// 4. The API will call this function when the video player is ready.
+		function onPlayerReady(event) {
+			console.log("It's Ready")
+			console.log(player.getCurrentTime());
+			event.target.playVideo();
+		}
+
+		// 5. The API calls this function when the player's state changes.
+		//    The function indicates that when playing a video (state=1),
+		//    the player should play for six seconds and then stop.
+		var done = false;
+		function onPlayerStateChange(event) {
+			if (event.data == YT.PlayerState.PLAYING && !done) {
+				done = true;
+				setInterval("showingContent()",100);
+			}
+			if (event.data == 2) {
+				console.log(player.getCurrentTime())
+			}
+		}
+		function stopVideo() {
+			player.stopVideo();
+			console.log(player.getCurrentTime());
+		}
+
+
+
+		function showingContent(){
+			playingTime = player.getCurrentTime();
+			if(repeatTrigger){
+				if(playingTime>finishTime){
+					player.seekTo(startTime, true);
+					return;
+				}
+			}
+			for(var i = contentNum; i<contentArray.length; i++){
+				if(playingTime>=contentArray[i].content.start*1 && playingTime<contentArray[i].content.finish*1){
+					document.getElementById("ContentE").innerHTML = contentArray[i].content.contentE;
+					document.getElementById("ContentK").innerHTML = contentArray[i].content.contentK;
+					document.getElementById("ContentX").innerHTML = contentArray[i].content.contentX;
+					document.getElementById("sceneNumber").innerHTML = (i+1)+"/"+contentArray.length;
+					contentNum = i;
+					startTime = contentArray[i].start;
+					finishTime = contentArray[i].finish;
+					break;
+				}else{
+					document.getElementById("ContentE").innerHTML = "";
+					document.getElementById("ContentK").innerHTML = "";
+					document.getElementById("ContentX").innerHTML = "";
+				}
+			}
+		}
+
+		function play(){
+			if (player.getPlayerState()==1) {
+				player.pauseVideo();
+			}
+			if (player.getPlayerState()==2) {
+				player.playVideo();
+			}
+		}
+
+		function repeat(){
+			if(repeatTrigger){
+				repeatTrigger = 0;
+			}else{
+				repeatTrigger = 1;
+			}
+		}
+
+		function prev(){
+			var nextContent = contentNum-1;
+			if(nextContent<0){
+				nextContent = 0;
+			}
+			document.getElementById("ContentE").innerHTML = contentArray[nextContent].content.contentE;
+			document.getElementById("ContentK").innerHTML = contentArray[nextContent].content.contentK;
+			document.getElementById("ContentX").innerHTML = contentArray[nextContent].content.contentX;
+			document.getElementById("sceneNumber").innerHTML = (nextContent+1)+"/"+contentArray.length;
+			contentNum = nextContent;
+			startTime = contentArray[nextContent].content.start;
+			finishTime = contentArray[nextContent].content.finish;
+			player.seekTo(contentArray[nextContent].content.start, true);
+		}
+
+		function next(){
+			var nextContent = contentNum+1;
+			if(nextContent>=contentArray.length){
+				nextContent = contentArray.length-1;
+			}
+			player.seekTo(contentArray[nextContent].content.start, true);
+		}
+
+	</script>
+</body>
+
+</html>

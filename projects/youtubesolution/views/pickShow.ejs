@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <div>
+      <table>
+        <tr>
+          <td><img src = https://img.youtube.com/vi/<%= url[0]%>/sddefault.jpg width="350" height="250" onclick = 'watchYoutube(0)'></td>
+          <td><img src = https://img.youtube.com/vi/<%= url[1]%>/sddefault.jpg width="350" height="250" onclick = 'watchYoutube(1)'></td>
+          <td><img src = https://img.youtube.com/vi/<%= url[2]%>/sddefault.jpg width="350" height="250" onclick = 'watchYoutube(2)'></td>
+        </tr>
+        <tr>
+          <td><img src = https://img.youtube.com/vi/<%= url[3]%>/sddefault.jpg width="350" height="250" onclick = 'watchYoutube(3)'></td>
+          <td><img src = https://img.youtube.com/vi/<%= url[4]%>/sddefault.jpg width="350" height="250" onclick = 'watchYoutube(4)'></td>
+          <td><img src = https://img.youtube.com/vi/<%= url[5]%>/sddefault.jpg width="350" height="250" onclick = 'watchYoutube(5)'></td>
+        </tr>
+        <tr>
+          <td><img src = https://img.youtube.com/vi/<%= url[6]%>/sddefault.jpg width="350" height="250" onclick = 'watchYoutube(6)'></td>
+          <td><img src = https://img.youtube.com/vi/<%= url[7]%>/sddefault.jpg width="350" height="250" onclick = 'watchYoutube(7)'></td>
+          <td><img src = https://img.youtube.com/vi/<%= url[8]%>/sddefault.jpg width="350" height="250" onclick = 'watchYoutube(8)'></td>
+        </tr>
+      </table>
+    </div>
+    <script type="text/javascript">
+    var urlArray = JSON.parse('<%-JSON.stringify(url)%>');
+    function watchYoutube(i){
+      location.href = "/show?url="+urlArray[i];
+    }
+    </script>
+  </body>
+</html>
